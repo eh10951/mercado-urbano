@@ -1,47 +1,57 @@
 /* ==========================================================================
    MERCADO URBANO - DESIGN SYSTEM & STYLESHEET
-   100% Vector Icons, Zero Emojis, Pure Luxury Modern Commerce
+   Paleta: Elementos Principales Blancos & Rosa Mexicano para Secundarios
+   Glassmorfismo de Alta Gama | Cero Emojis | 100% Vector Aesthetics
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    /* Color Palette */
-    --bg-base: #080C14;
-    --bg-surface: #0F172A;
-    --bg-card: #152033;
-    --bg-card-hover: #1C2B44;
-    --bg-input: #0B111E;
-    --bg-glass: rgba(15, 23, 42, 0.82);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-focus: rgba(245, 158, 11, 0.5);
+    /* Base Canvas - Deep Obsidian with subtle Mexican night warmth */
+    --bg-base: #0B0A11;
+    --bg-surface: rgba(18, 14, 26, 0.88);
+    --bg-card: rgba(24, 18, 34, 0.65);
+    --bg-card-hover: rgba(34, 25, 48, 0.85);
+    --bg-input: rgba(14, 11, 20, 0.85);
+    --bg-glass: rgba(14, 11, 22, 0.84);
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --border-focus: rgba(228, 0, 124, 0.65);
 
-    /* Accents */
-    --primary: #F59E0B;
-    --primary-hover: #D97706;
-    --primary-light: rgba(245, 158, 11, 0.12);
-    --primary-glow: 0 0 20px rgba(245, 158, 11, 0.25);
+    /* Elementos Principales (Blancos Lujosos de Alto Contraste) */
+    --primary: #FFFFFF;
+    --primary-hover: #F8FAFC;
+    --primary-text: #0B0A11;
+    --primary-glow: 0 0 20px rgba(255, 255, 255, 0.28);
+
+    /* Secundarios (Rosa Mexicano Legendario) */
+    --rosa-mexicano: #E4007C;
+    --rosa-mexicano-light: rgba(228, 0, 124, 0.14);
+    --rosa-mexicano-border: rgba(228, 0, 124, 0.38);
+    --rosa-mexicano-hover: #C20066;
+    --rosa-mexicano-bright: #FF2E93;
+    --rosa-mexicano-glow: 0 0 24px rgba(228, 0, 124, 0.38);
+
+    /* Accents de Soporte */
+    --accent-emerald: #10B981;
+    --accent-emerald-light: rgba(16, 185, 129, 0.14);
 
     --accent-blue: #38BDF8;
     --accent-blue-light: rgba(56, 189, 248, 0.12);
 
-    --accent-emerald: #10B981;
-    --accent-emerald-light: rgba(16, 185, 129, 0.14);
-
-    --accent-rose: #F43F5E;
-    --accent-rose-light: rgba(244, 63, 94, 0.14);
+    --accent-rose: #E4007C;
+    --accent-rose-light: rgba(228, 0, 124, 0.16);
 
     /* Text Colors */
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --text-muted: #64748B;
-    --text-inverse: #0F172A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CBD5E1;
+    --text-muted: #8896AB;
+    --text-inverse: #0B0A11;
 
-    /* Shadows & Elevation */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.7);
-    --shadow-glow: 0 4px 20px rgba(245, 158, 11, 0.2);
+    /* Glassmorphism & Elevation */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 12px 30px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(228, 0, 124, 0.12);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(228, 0, 124, 0.18);
 
     /* Spacing & Radii */
     --radius-sm: 6px;
@@ -78,6 +88,10 @@ html {
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-base);
+    background-image: 
+        radial-gradient(circle at 15% 10%, rgba(228, 0, 124, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.04) 0%, transparent 45%);
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.5;
     min-height: 100vh;
@@ -116,7 +130,7 @@ img {
     display: block;
 }
 
-/* Scrollbar */
+/* Scrollbar Glassmorphic */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -125,11 +139,11 @@ img {
     background: var(--bg-base);
 }
 ::-webkit-scrollbar-thumb {
-    background: #253349;
+    background: rgba(228, 0, 124, 0.3);
     border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #334460;
+    background: var(--rosa-mexicano);
 }
 
 /* ==========================================================================
@@ -169,6 +183,7 @@ img {
 .gap-4 { gap: 16px; }
 .gap-6 { gap: 24px; }
 
+/* Badges - Rosa Mexicano Secundario & Blanco */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -181,10 +196,17 @@ img {
     border-radius: var(--radius-sm);
 }
 
-.badge-gold {
-    background: var(--primary-light);
-    color: var(--primary);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+.badge-gold, .badge-rosa {
+    background: var(--rosa-mexicano-light);
+    color: var(--rosa-mexicano-bright);
+    border: 1px solid var(--rosa-mexicano-border);
+    box-shadow: 0 0 12px rgba(228, 0, 124, 0.15);
+}
+
+.badge-white {
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .badge-emerald {
@@ -205,53 +227,75 @@ img {
     border: 1px solid var(--border-subtle);
 }
 
-/* Buttons */
+/* ==========================================================================
+   BUTTONS (Elementos Principales Blancos & Accesorios Rosa)
+   ========================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     padding: 10px 18px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.88rem;
     border-radius: var(--radius-md);
     transition: all var(--transition-smooth);
     white-space: nowrap;
 }
 
+/* Elemento Principal Blanco Lujoso */
 .btn-primary {
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-    color: #0F172A;
-    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    background: #FFFFFF;
+    color: #0B0A11;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.25), 0 0 12px rgba(255, 255, 255, 0.12);
 }
 .btn-primary:hover {
-    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
+    background: #F8FAFC;
+    color: #000000;
+    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.45), 0 0 25px rgba(228, 0, 124, 0.25);
     transform: translateY(-1px);
 }
 .btn-primary:active {
     transform: translateY(0);
 }
 
+/* Secundario Glassmórfico */
 .btn-secondary {
-    background: var(--bg-card);
-    color: var(--text-primary);
-    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .btn-secondary:hover {
-    background: var(--bg-card-hover);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+}
+
+/* Botón Rosa Mexicano Destacado */
+.btn-rosa {
+    background: linear-gradient(135deg, #E4007C 0%, #A20056 100%);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(228, 0, 124, 0.35);
+}
+.btn-rosa:hover {
+    background: linear-gradient(135deg, #FF1493 0%, #E4007C 100%);
+    box-shadow: 0 6px 22px rgba(228, 0, 124, 0.55);
+    transform: translateY(-1px);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--text-primary);
+    color: #FFFFFF;
     border: 1px solid var(--border-subtle);
 }
 .btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: var(--primary-light);
+    border-color: var(--rosa-mexicano);
+    color: var(--rosa-mexicano-bright);
+    background: var(--rosa-mexicano-light);
 }
 
 .btn-icon {
@@ -262,15 +306,17 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: all var(--transition-fast);
 }
 .btn-icon:hover {
-    color: var(--text-primary);
-    background: var(--bg-card-hover);
-    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-sm {
@@ -280,27 +326,28 @@ img {
 
 .btn-danger {
     background: var(--accent-rose-light);
-    color: var(--accent-rose);
-    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: var(--rosa-mexicano-bright);
+    border: 1px solid var(--rosa-mexicano-border);
 }
 .btn-danger:hover {
-    background: var(--accent-rose);
+    background: var(--rosa-mexicano);
     color: #FFFFFF;
 }
 
 /* ==========================================================================
-   NAVIGATION BAR & HEADER
+   NAVIGATION BAR & HEADER (Glassmorphic)
    ========================================================================== */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
     background: var(--bg-glass);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
     height: var(--header-height);
     transition: height var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .header-inner {
@@ -323,13 +370,13 @@ img {
 .brand-emblem {
     width: 38px;
     height: 38px;
-    background: linear-gradient(135deg, #F59E0B 0%, #B45309 100%);
+    background: linear-gradient(135deg, #E4007C 0%, #8E004C 100%);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0B0F19;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(228, 0, 124, 0.45);
     flex-shrink: 0;
 }
 
@@ -347,13 +394,14 @@ img {
     font-size: 1.15rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: var(--text-primary);
+    color: #FFFFFF;
     line-height: 1.1;
     white-space: nowrap;
 }
 
 .brand-title span {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
+    text-shadow: 0 0 12px rgba(228, 0, 124, 0.4);
 }
 
 .brand-subtitle {
@@ -386,12 +434,14 @@ img {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 0 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: all var(--transition-smooth);
 }
 
 .search-input-wrap:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    border-color: var(--rosa-mexicano);
+    box-shadow: 0 0 0 3px rgba(228, 0, 124, 0.2);
 }
 
 .search-input-wrap svg {
@@ -403,7 +453,7 @@ img {
     width: 100%;
     padding: 10px 12px;
     background: transparent;
-    color: var(--text-primary);
+    color: #FFFFFF;
     font-size: 0.88rem;
 }
 
@@ -423,20 +473,21 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.35);
+    background: var(--rosa-mexicano-light);
+    border: 1px solid var(--rosa-mexicano-border);
     padding: 6px 12px;
     border-radius: var(--radius-full);
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
     transition: all var(--transition-smooth);
     white-space: nowrap;
 }
 
 .role-switcher:hover {
-    background: rgba(245, 158, 11, 0.2);
-    box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+    background: rgba(228, 0, 124, 0.25);
+    box-shadow: 0 0 16px rgba(228, 0, 124, 0.4);
+    color: #FFFFFF;
 }
 
 .action-badge-btn {
@@ -447,8 +498,8 @@ img {
     position: absolute;
     top: -4px;
     right: -4px;
-    background: var(--primary);
-    color: #0F172A;
+    background: var(--rosa-mexicano);
+    color: #FFFFFF;
     font-size: 0.68rem;
     font-weight: 800;
     width: 18px;
@@ -457,15 +508,15 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 8px rgba(228, 0, 124, 0.5);
 }
 
 /* Mobile Search Bar (Below Header on small screens) */
 .mobile-search-bar {
     padding: 8px 12px;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(14, 11, 22, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
     display: block;
     position: sticky;
@@ -474,12 +525,12 @@ img {
 }
 
 .mobile-search-bar .search-input-wrap {
-    background: var(--bg-card);
+    background: rgba(26, 20, 36, 0.8);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-full);
     padding: 0 12px;
     height: 38px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .mobile-search-bar .search-input {
@@ -525,7 +576,7 @@ img {
     }
 
     .brand-subtitle {
-        display: none; /* Hide secondary subtitle on mobile to keep header clean */
+        display: none;
     }
 
     .header-actions {
@@ -561,7 +612,6 @@ img {
         right: -3px;
     }
 
-    /* Hide redundant desktop navigation tabs bar on mobile because mobile-bottom-nav is used */
     .view-tabs-bar {
         display: none !important;
     }
@@ -578,7 +628,7 @@ img {
     }
 
     .role-prefix {
-        display: none; /* Hide "Modo: " so only "Comprador" or "Locatario" is shown */
+        display: none;
     }
 
     .role-switcher {
@@ -598,7 +648,7 @@ img {
     }
 
     .role-text-label {
-        display: none; /* On ultra-narrow screens, show just the switch icon */
+        display: none;
     }
 
     .role-switcher {
@@ -608,14 +658,14 @@ img {
 }
 
 /* ==========================================================================
-   BANNER HERO / MARKETPLACE PROMO
+   BANNER HERO / MARKETPLACE PROMO (Glassmorphism & Rosa Mexicano)
    ========================================================================== */
 .hero-banner {
     position: relative;
     padding: 32px 0;
-    background: radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+    background: radial-gradient(circle at 10% 20%, rgba(228, 0, 124, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(20, 16, 28, 0.95) 0%, var(--bg-base) 100%);
     border-bottom: 1px solid var(--border-subtle);
     overflow: hidden;
 }
@@ -642,14 +692,15 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--primary);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: var(--rosa-mexicano-light);
+    color: var(--rosa-mexicano-bright);
+    border: 1px solid var(--rosa-mexicano-border);
     padding: 4px 12px;
     border-radius: var(--radius-full);
     font-size: 0.78rem;
     font-weight: 700;
     margin-bottom: 12px;
+    box-shadow: 0 0 16px rgba(228, 0, 124, 0.2);
 }
 
 .hero-title {
@@ -658,6 +709,7 @@ img {
     line-height: 1.15;
     letter-spacing: -0.7px;
     margin-bottom: 10px;
+    color: #FFFFFF;
 }
 
 @media (min-width: 768px) {
@@ -667,7 +719,7 @@ img {
 }
 
 .hero-title span {
-    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FDE68A 100%);
+    background: linear-gradient(135deg, #FF2E93 0%, #E4007C 50%, #FFFFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -690,15 +742,17 @@ img {
     align-items: center;
     gap: 8px;
     font-size: 0.8rem;
-    color: var(--text-secondary);
-    background: var(--bg-card);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 6px 12px;
     border-radius: var(--radius-md);
 }
 
 .hero-feature-item svg {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .hero-quick-stats {
@@ -716,26 +770,28 @@ img {
 
 .stat-box {
     background: var(--bg-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 16px;
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-glass);
 }
 
 .stat-box-val {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary);
+    color: #FFFFFF;
     line-height: 1;
     margin-bottom: 4px;
 }
 
 .stat-box-lbl {
     font-size: 0.72rem;
-    color: var(--text-secondary);
+    color: var(--rosa-mexicano-bright);
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.5px;
 }
 
@@ -744,6 +800,8 @@ img {
    ========================================================================== */
 .view-tabs-bar {
     background: var(--bg-surface);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
     position: sticky;
     top: var(--header-height);
@@ -779,14 +837,15 @@ img {
 }
 
 .nav-tab:hover {
-    color: var(--text-primary);
-    background: var(--bg-card);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-tab.active {
-    color: var(--primary);
-    background: var(--primary-light);
-    border-color: rgba(245, 158, 11, 0.35);
+    color: #FFFFFF;
+    background: rgba(228, 0, 124, 0.20);
+    border-color: var(--rosa-mexicano-border);
+    box-shadow: 0 0 16px rgba(228, 0, 124, 0.25);
 }
 
 .nav-tab svg {
@@ -814,6 +873,8 @@ img {
     font-size: 0.8rem;
     font-weight: 600;
     background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-full);
@@ -822,15 +883,17 @@ img {
 }
 
 .cat-pill:hover {
-    color: var(--text-primary);
-    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .cat-pill.active {
-    background: var(--text-primary);
-    color: var(--text-inverse);
-    border-color: var(--text-primary);
+    background: #FFFFFF;
+    color: #0B0A11;
+    border-color: #FFFFFF;
     font-weight: 700;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
 /* ==========================================================================
@@ -854,10 +917,14 @@ img {
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.4px;
-    color: var(--text-primary);
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.section-title svg {
+    color: var(--rosa-mexicano-bright);
 }
 
 .section-subtitle {
@@ -875,7 +942,9 @@ img {
 
 .select-custom {
     background: var(--bg-card);
-    color: var(--text-primary);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 8px 12px;
@@ -885,11 +954,11 @@ img {
 }
 
 .select-custom:focus {
-    border-color: var(--primary);
+    border-color: var(--rosa-mexicano);
 }
 
 /* ==========================================================================
-   PRODUCT GRID & CARDS
+   PRODUCT GRID & CARDS (Glassmorphism de Lujo)
    ========================================================================== */
 .product-grid {
     display: grid;
@@ -917,8 +986,11 @@ img {
 
 .product-card {
     background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -928,15 +1000,15 @@ img {
 
 .product-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: var(--shadow-md);
+    border-color: rgba(228, 0, 124, 0.45);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 24px rgba(228, 0, 124, 0.22);
 }
 
 .product-thumb-wrap {
     position: relative;
     width: 100%;
-    padding-top: 75%; /* 4:3 Aspect Ratio */
-    background: #0D131F;
+    padding-top: 75%;
+    background: #0E0B16;
     overflow: hidden;
     cursor: pointer;
 }
@@ -969,8 +1041,8 @@ img {
     width: 34px;
     height: 34px;
     border-radius: var(--radius-full);
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(6px);
+    background: rgba(14, 11, 22, 0.75);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -981,9 +1053,10 @@ img {
 }
 
 .product-fav-btn:hover, .product-fav-btn.active {
-    color: var(--accent-rose);
-    background: rgba(244, 63, 94, 0.18);
-    border-color: rgba(244, 63, 94, 0.4);
+    color: var(--rosa-mexicano-bright);
+    background: rgba(228, 0, 124, 0.25);
+    border-color: rgba(228, 0, 124, 0.5);
+    box-shadow: 0 0 12px rgba(228, 0, 124, 0.4);
 }
 
 .product-info {
@@ -999,24 +1072,25 @@ img {
     gap: 6px;
     font-size: 0.74rem;
     font-weight: 600;
-    color: var(--accent-blue);
+    color: var(--rosa-mexicano-bright);
     margin-bottom: 6px;
     cursor: pointer;
 }
 
 .product-store-link:hover {
+    color: #FFFFFF;
     text-decoration: underline;
 }
 
 .product-store-link svg {
-    color: var(--accent-blue);
+    color: var(--rosa-mexicano-bright);
 }
 
 .product-title {
     font-size: 0.95rem;
     font-weight: 700;
     line-height: 1.35;
-    color: var(--text-primary);
+    color: #FFFFFF;
     margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1026,7 +1100,7 @@ img {
 }
 
 .product-title:hover {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .product-meta-row {
@@ -1043,11 +1117,11 @@ img {
     align-items: center;
     gap: 4px;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .rating-pill svg {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .product-price-section {
@@ -1073,7 +1147,7 @@ img {
 .price-current {
     font-size: 1.25rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #FFFFFF;
     letter-spacing: -0.5px;
 }
 
@@ -1105,8 +1179,11 @@ img {
 
 .store-card {
     background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -1114,16 +1191,16 @@ img {
 }
 
 .store-card:hover {
-    border-color: rgba(245, 158, 11, 0.4);
+    border-color: rgba(228, 0, 124, 0.45);
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 24px rgba(228, 0, 124, 0.22);
 }
 
 .store-banner {
     height: 110px;
     width: 100%;
     object-fit: cover;
-    background: #111827;
+    background: #110E1A;
 }
 
 .store-header-info {
@@ -1138,9 +1215,9 @@ img {
     width: 60px;
     height: 60px;
     border-radius: var(--radius-md);
-    border: 3px solid var(--bg-card);
+    border: 3px solid rgba(24, 18, 34, 0.9);
     object-fit: cover;
-    background: #1F2937;
+    background: #1F1729;
     box-shadow: var(--shadow-sm);
 }
 
@@ -1161,7 +1238,7 @@ img {
 .store-name {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .store-verified-icon {
@@ -1174,7 +1251,7 @@ img {
     gap: 5px;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
     margin-bottom: 8px;
 }
 
@@ -1219,8 +1296,11 @@ img {
    ========================================================================== */
 .storefront-header {
     background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
     overflow: hidden;
     margin-bottom: 24px;
 }
@@ -1263,16 +1343,16 @@ img {
     width: 90px;
     height: 90px;
     border-radius: var(--radius-lg);
-    border: 4px solid var(--bg-card);
+    border: 4px solid rgba(24, 18, 34, 0.95);
     object-fit: cover;
     box-shadow: var(--shadow-md);
-    background: #1F2937;
+    background: #1F1729;
 }
 
 .storefront-title-area h2 {
     font-size: 1.45rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1315,7 +1395,7 @@ img {
 }
 
 .storefront-info-col svg {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
     flex-shrink: 0;
 }
 
@@ -1324,8 +1404,11 @@ img {
    ========================================================================== */
 .vendor-portal {
     background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
     padding: 24px;
     margin-bottom: 30px;
 }
@@ -1378,6 +1461,8 @@ img {
 
 .vendor-stat-card {
     background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 18px;
@@ -1390,8 +1475,8 @@ img {
     width: 48px;
     height: 48px;
     border-radius: var(--radius-md);
-    background: var(--primary-light);
-    color: var(--primary);
+    background: var(--rosa-mexicano-light);
+    color: var(--rosa-mexicano-bright);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1419,7 +1504,7 @@ img {
 .stat-content .stat-number {
     font-size: 1.45rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #FFFFFF;
     line-height: 1.1;
     margin-top: 2px;
 }
@@ -1446,12 +1531,12 @@ img {
 }
 
 .subtab-btn:hover {
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .subtab-btn.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
+    color: var(--rosa-mexicano-bright);
+    border-bottom-color: var(--rosa-mexicano);
 }
 
 /* Vendor Table */
@@ -1460,6 +1545,7 @@ img {
     overflow-x: auto;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
+    background: rgba(18, 14, 26, 0.4);
 }
 
 .data-table {
@@ -1470,7 +1556,7 @@ img {
 }
 
 .data-table th {
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.05);
     padding: 12px 16px;
     color: var(--text-secondary);
     font-weight: 700;
@@ -1488,7 +1574,7 @@ img {
 }
 
 .data-table tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(228, 0, 124, 0.05);
 }
 
 /* ==========================================================================
@@ -1502,8 +1588,11 @@ img {
 
 .order-card {
     background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -1523,7 +1612,7 @@ img {
 .order-num {
     font-weight: 800;
     font-size: 1rem;
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .order-date {
@@ -1545,13 +1634,13 @@ img {
 }
 
 .order-item-title {
-    color: var(--text-primary);
+    color: #FFFFFF;
     font-weight: 600;
 }
 
 .order-item-store {
     font-size: 0.75rem;
-    color: var(--accent-blue);
+    color: var(--rosa-mexicano-bright);
 }
 
 .order-footer {
@@ -1564,7 +1653,7 @@ img {
 }
 
 /* ==========================================================================
-   MODALS & DRAWERS
+   MODALS & DRAWERS (Glassmorphism de Alto Nivel)
    ========================================================================== */
 .modal-overlay {
     position: fixed;
@@ -1572,9 +1661,9 @@ img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(5, 8, 15, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(8, 6, 12, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -1591,8 +1680,10 @@ img {
 }
 
 .modal-container {
-    background: var(--bg-surface);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(18, 14, 26, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: var(--radius-lg);
     width: 100%;
     max-width: 640px;
@@ -1619,14 +1710,15 @@ img {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    background: var(--bg-surface);
+    background: rgba(18, 14, 26, 0.95);
+    backdrop-filter: blur(16px);
     z-index: 5;
 }
 
 .modal-title {
     font-size: 1.15rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .modal-body {
@@ -1640,7 +1732,7 @@ img {
     align-items: center;
     justify-content: flex-end;
     gap: 12px;
-    background: var(--bg-card);
+    background: rgba(24, 18, 34, 0.9);
 }
 
 /* Product Detail Modal Layout */
@@ -1661,7 +1753,8 @@ img {
     height: 320px;
     object-fit: cover;
     border-radius: var(--radius-md);
-    background: #0E1624;
+    background: #0E0B16;
+    border: 1px solid var(--border-subtle);
 }
 
 .modal-specs-list {
@@ -1686,7 +1779,7 @@ img {
 }
 
 .modal-spec-val {
-    color: var(--text-primary);
+    color: #FFFFFF;
     font-weight: 600;
 }
 
@@ -1711,13 +1804,14 @@ img {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 10px 14px;
-    color: var(--text-primary);
+    color: #FFFFFF;
     font-size: 0.88rem;
     transition: border-color var(--transition-fast);
 }
 
 .form-control:focus {
-    border-color: var(--primary);
+    border-color: var(--rosa-mexicano);
+    box-shadow: 0 0 0 3px rgba(228, 0, 124, 0.2);
 }
 
 .form-row {
@@ -1733,7 +1827,7 @@ img {
 }
 
 /* ==========================================================================
-   CART SLIDE-OVER DRAWER
+   CART SLIDE-OVER DRAWER (Glassmorphism)
    ========================================================================== */
 .cart-drawer-overlay {
     position: fixed;
@@ -1741,8 +1835,8 @@ img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
+    background: rgba(8, 6, 12, 0.75);
+    backdrop-filter: blur(6px);
     z-index: 95;
     opacity: 0;
     pointer-events: none;
@@ -1761,7 +1855,9 @@ img {
     width: 100%;
     max-width: 420px;
     height: 100vh;
-    background: var(--bg-surface);
+    background: rgba(18, 14, 26, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-left: 1px solid var(--border-subtle);
     z-index: 96;
     display: flex;
@@ -1783,6 +1879,10 @@ img {
     justify-content: space-between;
 }
 
+.cart-drawer-header svg {
+    color: var(--rosa-mexicano-bright);
+}
+
 .cart-items-container {
     flex: 1;
     overflow-y: auto;
@@ -1796,6 +1896,7 @@ img {
     display: flex;
     gap: 12px;
     background: var(--bg-card);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 12px;
@@ -1806,7 +1907,7 @@ img {
     height: 64px;
     object-fit: cover;
     border-radius: var(--radius-sm);
-    background: #0E1624;
+    background: #0E0B16;
     flex-shrink: 0;
 }
 
@@ -1819,14 +1920,14 @@ img {
 .cart-item-title {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #FFFFFF;
     line-height: 1.25;
     margin-bottom: 2px;
 }
 
 .cart-item-store {
     font-size: 0.72rem;
-    color: var(--accent-blue);
+    color: var(--rosa-mexicano-bright);
     margin-bottom: 8px;
 }
 
@@ -1840,7 +1941,7 @@ img {
 .cart-item-price {
     font-size: 0.95rem;
     font-weight: 800;
-    color: var(--primary);
+    color: #FFFFFF;
 }
 
 .cart-qty-ctrl {
@@ -1864,8 +1965,8 @@ img {
 }
 
 .cart-qty-btn:hover {
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .cart-qty-val {
@@ -1873,12 +1974,13 @@ img {
     text-align: center;
     font-size: 0.8rem;
     font-weight: 700;
+    color: #FFFFFF;
 }
 
 .cart-drawer-footer {
     padding: 18px 20px;
     border-top: 1px solid var(--border-subtle);
-    background: var(--bg-card);
+    background: rgba(24, 18, 34, 0.95);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1894,7 +1996,7 @@ img {
 .cart-summary-row.total {
     font-size: 1.15rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #FFFFFF;
     padding-top: 8px;
     border-top: 1px dashed var(--border-subtle);
 }
@@ -1926,16 +2028,18 @@ img {
     align-self: flex-start;
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
+    color: #FFFFFF;
     border-bottom-left-radius: 2px;
 }
 
+/* Mensajes del Comprador en Rosa Mexicano */
 .chat-bubble.client {
     align-self: flex-end;
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-    color: #0F172A;
+    background: linear-gradient(135deg, #E4007C 0%, #A20056 100%);
+    color: #FFFFFF;
     font-weight: 600;
     border-bottom-right-radius: 2px;
+    box-shadow: 0 4px 12px rgba(228, 0, 124, 0.35);
 }
 
 .chat-time {
@@ -1945,7 +2049,7 @@ img {
 }
 
 .chat-bubble.client .chat-time {
-    color: rgba(15, 23, 42, 0.7);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .chat-input-row {
@@ -1955,7 +2059,7 @@ img {
 }
 
 /* ==========================================================================
-   MOBILE BOTTOM BAR (Strictly Responsive)
+   MOBILE BOTTOM BAR (Strictly Responsive & Glassmorphic)
    ========================================================================== */
 .mobile-bottom-nav {
     position: fixed;
@@ -1963,14 +2067,15 @@ img {
     left: 0;
     width: 100%;
     height: var(--mobile-nav-height);
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(18, 14, 26, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
     justify-content: space-around;
     z-index: 60;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 769px) {
@@ -1997,7 +2102,7 @@ img {
 }
 
 .mobile-nav-item.active {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .mobile-nav-item svg {
@@ -2025,12 +2130,13 @@ img {
 }
 
 .toast {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-left: 4px solid var(--primary);
+    background: rgba(24, 18, 34, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 4px solid var(--rosa-mexicano);
     border-radius: var(--radius-md);
     padding: 12px 18px;
-    color: var(--text-primary);
+    color: #FFFFFF;
     box-shadow: var(--shadow-lg);
     font-size: 0.84rem;
     font-weight: 600;
@@ -2046,7 +2152,7 @@ img {
 }
 
 .toast.toast-info {
-    border-left-color: var(--accent-blue);
+    border-left-color: var(--rosa-mexicano);
 }
 
 @keyframes toastIn {
@@ -2073,9 +2179,9 @@ img {
 }
 
 .status-pendiente {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--primary);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: var(--rosa-mexicano-light);
+    color: var(--rosa-mexicano-bright);
+    border: 1px solid var(--rosa-mexicano-border);
 }
 
 .status-preparacion {
@@ -2122,7 +2228,7 @@ img {
 .empty-title {
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .empty-desc {
@@ -2134,6 +2240,8 @@ img {
 /* Footer */
 .site-footer {
     background: var(--bg-surface);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-top: 1px solid var(--border-subtle);
     padding: 36px 0 20px;
     margin-top: auto;
@@ -2155,7 +2263,7 @@ img {
 .footer-col h5 {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #FFFFFF;
     margin-bottom: 12px;
 }
 
@@ -2169,7 +2277,7 @@ img {
 }
 
 .footer-links a:hover {
-    color: var(--primary);
+    color: var(--rosa-mexicano-bright);
 }
 
 .footer-bottom {
