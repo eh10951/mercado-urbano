@@ -342,7 +342,8 @@ const App = {
     updateRoleUI() {
         const role = storeManager.getRole();
         if (this.dom.roleBadgeText) {
-            this.dom.roleBadgeText.textContent = role === 'vendor' ? 'Modo: Locatario' : 'Modo: Comprador';
+            const label = role === 'vendor' ? 'Locatario' : 'Comprador';
+            this.dom.roleBadgeText.innerHTML = `<span class="role-prefix">Modo: </span><span class="role-text-label">${label}</span>`;
         }
         const vendorTab = document.querySelector('.nav-tab[data-view="panel-locatario"]');
         if (vendorTab) {

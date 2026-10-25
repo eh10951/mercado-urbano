@@ -54,8 +54,9 @@
     --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
     /* Layout metrics */
-    --header-height: 72px;
-    --mobile-nav-height: 64px;
+    --header-height: 70px;
+    --header-height-mobile: 56px;
+    --mobile-nav-height: 60px;
     --max-width: 1320px;
 }
 
@@ -299,6 +300,7 @@ img {
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
     height: var(--header-height);
+    transition: height var(--transition-fast);
 }
 
 .header-inner {
@@ -328,6 +330,12 @@ img {
     justify-content: center;
     color: #0B0F19;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    flex-shrink: 0;
+}
+
+.brand-emblem svg {
+    width: 20px;
+    height: 20px;
 }
 
 .brand-info {
@@ -341,6 +349,7 @@ img {
     letter-spacing: -0.5px;
     color: var(--text-primary);
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .brand-title span {
@@ -353,6 +362,7 @@ img {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    white-space: nowrap;
 }
 
 /* Search Bar (Desktop & Tablet) */
@@ -405,7 +415,7 @@ img {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex-shrink: 0;
 }
 
@@ -421,6 +431,7 @@ img {
     font-weight: 700;
     color: var(--primary);
     transition: all var(--transition-smooth);
+    white-space: nowrap;
 }
 
 .role-switcher:hover {
@@ -451,15 +462,148 @@ img {
 
 /* Mobile Search Bar (Below Header on small screens) */
 .mobile-search-bar {
-    padding: 10px 16px;
-    background: var(--bg-surface);
+    padding: 8px 12px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
     display: block;
+    position: sticky;
+    top: var(--header-height-mobile);
+    z-index: 45;
+}
+
+.mobile-search-bar .search-input-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    padding: 0 12px;
+    height: 38px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-search-bar .search-input {
+    padding: 6px 10px;
+    font-size: 0.82rem;
 }
 
 @media (min-width: 768px) {
     .mobile-search-bar {
         display: none;
+    }
+}
+
+/* Mobile Responsive Header Adjustments */
+@media (max-width: 768px) {
+    .site-header {
+        height: var(--header-height-mobile);
+    }
+
+    .header-inner {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-emblem {
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-sm);
+    }
+
+    .brand-emblem svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .brand-title {
+        font-size: 0.98rem;
+        letter-spacing: -0.3px;
+    }
+
+    .brand-subtitle {
+        display: none; /* Hide secondary subtitle on mobile to keep header clean */
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .role-switcher {
+        padding: 5px 9px;
+        font-size: 0.74rem;
+        gap: 4px;
+    }
+
+    .role-switcher svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .btn-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .btn-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .counter-badge {
+        width: 16px;
+        height: 16px;
+        font-size: 0.62rem;
+        top: -3px;
+        right: -3px;
+    }
+
+    /* Hide redundant desktop navigation tabs bar on mobile because mobile-bottom-nav is used */
+    .view-tabs-bar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-inner {
+        padding: 0 8px;
+        gap: 6px;
+    }
+
+    .brand-title {
+        font-size: 0.90rem;
+    }
+
+    .role-prefix {
+        display: none; /* Hide "Modo: " so only "Comprador" or "Locatario" is shown */
+    }
+
+    .role-switcher {
+        padding: 4px 7px;
+        font-size: 0.70rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .brand-emblem {
+        width: 28px;
+        height: 28px;
+    }
+
+    .brand-title {
+        font-size: 0.82rem;
+    }
+
+    .role-text-label {
+        display: none; /* On ultra-narrow screens, show just the switch icon */
+    }
+
+    .role-switcher {
+        padding: 6px;
+        border-radius: var(--radius-md);
     }
 }
 
