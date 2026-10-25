@@ -132,6 +132,17 @@
                 <span class="cta-voz-txt"><strong>PEDIR POR VOZ</strong><small>Toca aquí y dime qué necesitas</small></span>
             </button>
 
+            <!-- Banner Directorio Barrial CDMX (Barrio Abierto) -->
+            <div class="dir-home-card" data-go="directorio" role="button" tabindex="0" aria-label="Abrir directorio de mercados y tianguis CDMX">
+                <div class="dir-home-ico" data-icon="store"></div>
+                <div class="dir-home-body">
+                    <span class="dir-home-tag">BARRIO ABIERTO CDMX</span>
+                    <strong>339 Mercados y 1,367 Tianguis</strong>
+                    <small>Horarios, giros y puntos de abasto en las 16 alcaldías</small>
+                </div>
+                <span class="dir-home-arrow" data-icon="back"></span>
+            </div>
+
             <div class="tiles">
                 <button class="tile" data-go="pedido" id="tile-pedido"><span class="tile-ico" data-icon="cart"></span><span>VER<br>MI PEDIDO</span><span class="tile-badge" id="tile-badge" hidden>0</span></button>
                 <button class="tile" data-go="seguimiento" id="tile-seguimiento"><span class="tile-ico" data-icon="truck"></span><span>¿DÓNDE ESTÁ<br>MI PEDIDO?</span></button>
@@ -328,9 +339,214 @@
             </div>
         </section>
 
+        <!-- ========== DIRECTORIO BARRIAL CDMX (BARRIO ABIERTO) ========== -->
+        <section class="screen has-tabbar" id="screen-directorio" data-screen="directorio" aria-label="Directorio Barrial de Mercados y Tianguis">
+            <header class="topbar plain">
+                <span class="topbar-spacer"></span>
+                <h2>Directorio CDMX</h2>
+                <span class="topbar-spacer"></span>
+            </header>
+
+            <div class="screen-body">
+                <!-- Subpestañas del Directorio -->
+                <div class="dir-subtabs" role="tablist">
+                    <button class="dir-subtab is-active" data-dir-sub="directorio" role="tab">Mercados y Tianguis</button>
+                    <button class="dir-subtab" data-dir-sub="alta" role="tab">Sumar mi Puesto</button>
+                    <button class="dir-subtab" data-dir-sub="mayoreo" role="tab">Costo Entregado</button>
+                    <button class="dir-subtab" data-dir-sub="offline" role="tab">Modo Offline</button>
+                </div>
+
+                <!-- SUB-PANE 1: DIRECTORIO BARRIAL -->
+                <div class="dir-pane is-active" id="dir-pane-directorio">
+                    <div class="dir-search-box">
+                        <div class="dir-input-wrap">
+                            <span class="dir-search-ico" data-icon="tag"></span>
+                            <input type="search" id="dir-search-input" placeholder="Buscar mercado, tianguis, giro o alcaldía..." aria-label="Buscar en el directorio">
+                        </div>
+                        <div class="dir-filters-row">
+                            <select id="dir-select-type" aria-label="Filtrar por tipo de comercio">
+                                <option value="">Todos los tipos</option>
+                                <option value="market">Mercados Públicos (339)</option>
+                                <option value="tianguis">Tianguis CDMX (1,367)</option>
+                                <option value="shop">Tiendas de Barrio</option>
+                            </select>
+                            <select id="dir-select-borough" aria-label="Filtrar por alcaldía">
+                                <option value="">Todas las alcaldías</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dir-stats-bar">
+                        <span id="dir-count-label">Cargando comercios de la CDMX...</span>
+                        <span class="dir-provenance-badge">SEDECO CDMX & Padrón Oficial</span>
+                    </div>
+
+                    <!-- Lista de tarjetas de mercados -->
+                    <ul class="dir-cards-list" id="dir-cards-list"></ul>
+                </div>
+
+                <!-- SUB-PANE 2: ALTA VOLUNTARIA BARRIAL -->
+                <div class="dir-pane" id="dir-pane-alta" hidden>
+                    <div class="onboard-card">
+                        <div class="onboard-head">
+                            <span class="onboard-ico" data-icon="store"></span>
+                            <div>
+                                <h3>Suma tu puesto al Directorio Barrial</h3>
+                                <p>Inclusión digital asistida sin trámites engorrosos ni costo de suscripción.</p>
+                            </div>
+                        </div>
+
+                        <div class="onboard-mode-box">
+                            <label for="onboard-assistance-type">Modalidad de acompañamiento:</label>
+                            <select id="onboard-assistance-type">
+                                <option value="self">Auto-registro libre</option>
+                                <option value="assisted">Acompañamiento presencial por Facilitador Comunitario</option>
+                            </select>
+                            <small id="onboard-help-text">Puedes completar el registro libremente sin compartir datos privados.</small>
+                        </div>
+
+                        <form id="onboard-form" class="onboard-form">
+                            <div class="form-group">
+                                <label for="onboard-kind">Tipo de comercio:</label>
+                                <select id="onboard-kind" required>
+                                    <option value="tianguis">Puesto de Tianguis</option>
+                                    <option value="market">Local en Mercado Público</option>
+                                    <option value="shop">Comercio / Tienda de Barrio</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="onboard-name">Nombre de tu puesto o negocio:</label>
+                                <input type="text" id="onboard-name" placeholder="Ej. Frutas y Legumbres Doña Mary" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="onboard-borough">Alcaldía:</label>
+                                <select id="onboard-borough" required>
+                                    <option value="Cuauhtémoc">Cuauhtémoc</option>
+                                    <option value="Iztapalapa">Iztapalapa</option>
+                                    <option value="Gustavo A. Madero">Gustavo A. Madero</option>
+                                    <option value="Coyoacán">Coyoacán</option>
+                                    <option value="Benito Juárez">Benito Juárez</option>
+                                    <option value="Venustiano Carranza">Venustiano Carranza</option>
+                                    <option value="Azcapotzalco">Azcapotzalco</option>
+                                    <option value="Tlalpan">Tlalpan</option>
+                                    <option value="Álvaro Obregón">Álvaro Obregón</option>
+                                    <option value="Xochimilco">Xochimilco</option>
+                                    <option value="Miguel Hidalgo">Miguel Hidalgo</option>
+                                    <option value="Iztacalco">Iztacalco</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="onboard-category">Categoría principal:</label>
+                                <select id="onboard-category" required>
+                                    <option value="Frutas y verduras">Frutas y verduras</option>
+                                    <option value="Abarrotes y semillas">Abarrotes y semillas</option>
+                                    <option value="Carnes y pollo">Carnes y pollo</option>
+                                    <option value="Comida preparada">Comida preparada</option>
+                                    <option value="Flores y plantas">Flores y plantas</option>
+                                    <option value="Ropa y calzado">Ropa y calzado</option>
+                                </select>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" id="onboard-consent" required checked>
+                                <label for="onboard-consent">Confirmo que deseo incluir este puesto en la red barrial comunitaria con derecho de rectificación o baja inmediata.</label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary"><span data-icon="plus"></span>Generar ficha de puesto</button>
+                            </div>
+                        </form>
+
+                        <!-- Preview panel for draft -->
+                        <div class="draft-preview-box" id="draft-preview-box" hidden>
+                            <div class="draft-preview-head">
+                                <strong>Ficha activa en esta sesión:</strong>
+                                <span class="draft-badge">VISTA PREVIA</span>
+                            </div>
+                            <div class="draft-preview-body" id="draft-preview-body"></div>
+                            <div class="draft-preview-actions">
+                                <button class="btn btn-outline" id="btn-withdraw-draft"><span data-icon="trash"></span>Retirar ficha de la sesión</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-PANE 3: COMPARADOR CEDA DE COSTO TOTAL ENTREGADO -->
+                <div class="dir-pane" id="dir-pane-mayoreo" hidden>
+                    <div class="quote-engine-card">
+                        <div class="quote-engine-head">
+                            <span class="quote-engine-ico" data-icon="tag"></span>
+                            <div>
+                                <h3>Comparador de Costo Total Entregado</h3>
+                                <p>CEDA Mayorista: Compara precio en bodega, flete colectivo, maniobra y requisitos de lote mínimo.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-controls-card">
+                            <div class="quote-params">
+                                <div>
+                                    <small>Canasta de referencia:</small>
+                                    <strong>10 cajas de hortalizas CEDA</strong>
+                                </div>
+                                <div>
+                                    <small>Modelo de flete:</small>
+                                    <span class="quote-model-tag">Ruta colectiva compartida</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="quote-section-title">Ofertas Elegibles (Ordenadas por Costo Total)</h4>
+                        <div class="quote-results-grid" id="quote-eligible-grid"></div>
+
+                        <h4 class="quote-section-title">Ofertas Excluidas (Criterios de Transparencia)</h4>
+                        <div class="quote-results-grid" id="quote-excluded-grid"></div>
+                    </div>
+                </div>
+
+                <!-- SUB-PANE 4: LABORATORIO OFFLINE & IDEMPOTENCIA -->
+                <div class="dir-pane" id="dir-pane-offline" hidden>
+                    <div class="offline-lab-card">
+                        <div class="offline-lab-head">
+                            <span class="offline-lab-ico" data-icon="truck"></span>
+                            <div>
+                                <h3>Resiliencia en Tianguis: Offline & Idempotencia</h3>
+                                <p>Garantía de cero cobros duplicados ni pérdida de pedidos ante cortes de señal en la vía pública.</p>
+                            </div>
+                        </div>
+
+                        <div class="offline-status-box" id="offline-network-status">
+                            <div class="offline-status-dot is-online"></div>
+                            <div>
+                                <strong id="offline-net-label">Conexión activa con la Central de Abasto</strong>
+                                <small id="offline-net-sub">El Service Worker intercepta y encola con clave UUID única.</small>
+                            </div>
+                        </div>
+
+                        <div class="offline-actions-grid">
+                            <button class="btn btn-outline" id="btn-toggle-offline-sim"><span data-icon="clock"></span>Simular pérdida de señal en tianguis</button>
+                            <button class="btn btn-outline" id="btn-test-idempotent-order"><span data-icon="plus"></span>Simular pedido con clave UUID</button>
+                            <button class="btn btn-primary" id="btn-flush-sync-queue"><span data-icon="check"></span>Sincronizar pedidos encolados</button>
+                        </div>
+
+                        <div class="offline-queue-box">
+                            <div class="queue-head">
+                                <strong>Bitácora de Eventos e Idempotencia</strong>
+                                <span class="queue-count" id="queue-count-badge">0 pendientes</span>
+                            </div>
+                            <pre class="offline-ledger-pre" id="offline-ledger-pre">Sin eventos en la sesión local.</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ========== BARRA INFERIOR ========== -->
         <nav class="tabbar" id="tabbar" aria-label="Navegación principal">
             <button class="tab is-active" data-tab="inicio"><span data-icon="home"></span>Inicio</button>
+            <button class="tab" data-tab="directorio"><span data-icon="store"></span>Mercados</button>
             <button class="tab" data-tab="precios"><span data-icon="grid"></span>Productos</button>
             <button class="tab" data-tab="mis-pedidos"><span data-icon="file"></span>Mis pedidos</button>
             <button class="tab" data-tab="perfil"><span data-icon="user"></span>Perfil</button>

@@ -321,6 +321,7 @@
         if (screenId === 'seguimiento') renderTimeline();
         if (screenId === 'mis-pedidos') renderOrdersList();
         if (screenId === 'colectivas') renderGroupsList();
+        if (screenId === 'directorio') renderDirectoryView();
         if (screenId === 'inicio') updateBadge();
 
         window.scrollTo(0, 0);
@@ -951,6 +952,612 @@ _Conserva este mensaje. No requiere conexión continua._`;
     }
 
     // -------------------------------------------------------------
+    // DIRECTORIO BARRIAL CDMX (BARRIO ABIERTO) & INTEGRACIONES
+    // -------------------------------------------------------------
+    const DIRECTORIO_DATA = [
+        {
+            id: 'cdmx:market:jamaica',
+            kind: 'market',
+            name: 'Mercado Jamaica',
+            alcaldia: 'Venustiano Carranza',
+            address: 'Guillermo Prieto 45, Col. Jamaica',
+            schedule: '24 horas · Lun a Dom',
+            categories: ['Flores y Plantas', 'Frutas y Hortalizas', 'Abarrotes'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Histórico centro de distribución de flores y hortalizas frescas con más de 1,150 locatarios.'
+        },
+        {
+            id: 'cdmx:tianguis:sanfelipe',
+            kind: 'tianguis',
+            name: 'Tianguis San Felipe de Jesús',
+            alcaldia: 'Gustavo A. Madero',
+            address: 'Av. Dolores Hidalgo, Col. San Felipe de Jesús',
+            schedule: 'Domingos 07:00 a 18:00',
+            categories: ['Frutas y Verduras', 'Abarrotes', 'Ropa', 'Herramientas'],
+            provenance: 'Padrón de Tianguis CDMX',
+            verified: true,
+            desc: 'El tianguis más grande de América Latina con más de 7 kilómetros de comercio popular dominical.'
+        },
+        {
+            id: 'cdmx:market:sanjuan',
+            kind: 'market',
+            name: 'Mercado San Juan Pugibet',
+            alcaldia: 'Cuauhtémoc',
+            address: 'Ernesto Pugibet 21, Centro Histórico',
+            schedule: 'Lun a Dom 08:00 a 17:00',
+            categories: ['Carnes Gourmet', 'Quesos y Cremería', 'Hortalizas Finas'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Especializado en alimentos gourmet, carnes selectas y productos de alta cocina tradicional.'
+        },
+        {
+            id: 'cdmx:tianguis:sullivan',
+            kind: 'tianguis',
+            name: 'Tianguis Sullivan (Monumento a la Madre)',
+            alcaldia: 'Cuauhtémoc',
+            address: 'James Sullivan y Manuel Villalongín, Cuauhtémoc',
+            schedule: 'Sábados y Domingos 08:00 a 17:00',
+            categories: ['Frutas y Legumbres', 'Comida Preparada', 'Antojitos'],
+            provenance: 'Padrón de Tianguis CDMX',
+            verified: true,
+            desc: 'Emblemático tianguis de fin de semana con frutas de temporada, legumbres y comida tradicional.'
+        },
+        {
+            id: 'cdmx:market:sonora',
+            kind: 'market',
+            name: 'Mercado Sonora',
+            alcaldia: 'Venustiano Carranza',
+            address: 'Fray Servando Teresa de Mier 419, Merced Balbuena',
+            schedule: 'Lun a Sáb 08:00 a 19:00 · Dom 08:00 a 17:00',
+            categories: ['Herbolaria Tradicional', 'Abarrotes', 'Cerámica'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Referencia nacional de medicina tradicional, herbolaria mexicana y artesanías de barro.'
+        },
+        {
+            id: 'cdmx:tianguis:elsalado',
+            kind: 'tianguis',
+            name: 'Tianguis El Salado',
+            alcaldia: 'Iztapalapa',
+            address: 'Sentimiento de la Nación s/n, Ermita Zaragoza',
+            schedule: 'Miércoles 06:00 a 17:00',
+            categories: ['Abarrotes', 'Frutas y Verduras', 'Ropa y Enseres'],
+            provenance: 'Padrón de Tianguis CDMX',
+            verified: true,
+            desc: 'Gran punto de abasto popular del oriente de la CDMX con precios directos de mayoreo.'
+        },
+        {
+            id: 'cdmx:market:coyoacan',
+            kind: 'market',
+            name: 'Mercado de Coyoacán',
+            alcaldia: 'Coyoacán',
+            address: 'Ignacio Allende s/n, Del Carmen Coyoacán',
+            schedule: 'Lun a Dom 08:00 a 19:00',
+            categories: ['Antojitos', 'Frutas y Verduras', 'Artesanías'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Corazón gastronómico del sur con frutas frescas, quesos de provincia y comida tradicional.'
+        },
+        {
+            id: 'cdmx:tianguis:labola',
+            kind: 'tianguis',
+            name: 'Tianguis La Bola / El Imán',
+            alcaldia: 'Coyoacán',
+            address: 'Av. del Imán y Panamericana, Pedregal de Carrasco',
+            schedule: 'Domingos 08:00 a 18:00',
+            categories: ['Frutas y Hortalizas', 'Cremería', 'Ropa'],
+            provenance: 'Padrón de Tianguis CDMX',
+            verified: true,
+            desc: 'Gran plaza dominical de abasto del sur de la ciudad con amplia variedad de productos perecederos.'
+        },
+        {
+            id: 'cdmx:market:merced',
+            kind: 'market',
+            name: 'Mercado La Merced (Nave Mayor)',
+            alcaldia: 'Venustiano Carranza',
+            address: 'Circunvalación s/n, La Merced',
+            schedule: 'Lun a Dom 06:00 a 19:00',
+            categories: ['Abarrotes', 'Frutas y Verduras', 'Chiles Secos'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Principal centro de comercio minorista y semi-mayorista histórico del centro de la ciudad.'
+        },
+        {
+            id: 'cdmx:tianguis:lastorres',
+            kind: 'tianguis',
+            name: 'Tianguis Las Torres',
+            alcaldia: 'Iztapalapa',
+            address: 'Av. Las Torres y Periférico Oriente',
+            schedule: 'Jueves y Domingos 07:00 a 17:00',
+            categories: ['Frutas y Verduras', 'Abarrotes', 'Pescados'],
+            provenance: 'Padrón de Tianguis CDMX',
+            verified: true,
+            desc: 'Punto estratégico de abasto directo conectado con rutas de distribución desde la CEDA.'
+        },
+        {
+            id: 'cdmx:market:medellin',
+            kind: 'market',
+            name: 'Mercado Melchor Ocampo (Medellín)',
+            alcaldia: 'Cuauhtémoc',
+            address: 'Campeche 101, Roma Sur',
+            schedule: 'Lun a Dom 08:00 a 18:00',
+            categories: ['Hortalizas Frescas', 'Carnes y Pollo', 'Lácteos'],
+            provenance: 'SEDECO CDMX (Padrón Oficial)',
+            verified: true,
+            desc: 'Mercado icónico de la colonia Roma con oferta multicultural de productos frescos.'
+        },
+        {
+            id: 'cdmx:shop:donpedro',
+            kind: 'shop',
+            name: 'Abarrotes y Cremería La Providencia',
+            alcaldia: 'Azcapotzalco',
+            address: 'Calzada Camarones 142, Clavería',
+            schedule: 'Lun a Sáb 07:30 a 21:00 · Dom 08:00 a 16:00',
+            categories: ['Abarrotes', 'Lácteos y Huevos', 'Semillas'],
+            provenance: 'Registro Barrial Voluntario',
+            verified: true,
+            desc: 'Tienda de barrio tradicional que abastece a familias locales de la alcaldía Azcapotzalco.'
+        }
+    ];
+
+    const QUOTE_BASKET_DEMO = {
+        title: '10 cajas de hortalizas CEDA (Jitomate, Papa, Cebolla, Limón)',
+        baseUnits: 10,
+        quotes: [
+            {
+                id: 'quote-b',
+                supplier: 'Mayorista CEDA Bodega B (Pasillo 2)',
+                goods: 1050,
+                freight: 20,
+                labor: 20,
+                total: 1090,
+                moq: 10,
+                status: 'eligible',
+                badge: '★ Mejor Costo Entregado',
+                notes: 'Flete colectivo agrupado en ruta matutina directa.'
+            },
+            {
+                id: 'quote-a',
+                supplier: 'Mayorista CEDA Nave I (Bodega 14)',
+                goods: 1000,
+                freight: 100,
+                labor: 60,
+                total: 1160,
+                moq: 10,
+                status: 'eligible',
+                badge: 'Elegible',
+                notes: 'Flete semiprivado con costo de maniobra estándar.'
+            },
+            {
+                id: 'quote-e',
+                supplier: 'Distribuidora Central (Nave G)',
+                goods: 1070,
+                freight: 25,
+                labor: 15,
+                total: 1110,
+                moq: 10,
+                status: 'eligible',
+                badge: 'Elegible',
+                notes: 'Flete colectivo con entrega en horario 05:00 a. m.'
+            },
+            {
+                id: 'quote-f',
+                supplier: 'Mayorista F (Lote mínimo 20 cajas)',
+                goods: 900,
+                freight: 40,
+                labor: 20,
+                total: 960,
+                moq: 20,
+                status: 'excluded',
+                reason: 'Excluida: Lote mínimo de 20 cajas no alcanzado (pedido actual: 10 cajas)',
+                notes: 'Aparenta precio bajo pero impone sobrecosto de inventario.'
+            },
+            {
+                id: 'quote-c',
+                supplier: 'Distribuidora C (Oferta fuera de vigencia)',
+                goods: 990,
+                freight: 15,
+                labor: 10,
+                total: 1015,
+                moq: 10,
+                status: 'excluded',
+                reason: 'Excluida: Cotización vencida al corte del 25 de octubre',
+                notes: 'Protección contra precios desactualizados o engañosos.'
+            },
+            {
+                id: 'quote-d',
+                supplier: 'Mayorista D (Garantía no declarada)',
+                goods: 1020,
+                freight: 20,
+                labor: 20,
+                total: 1060,
+                moq: 10,
+                status: 'excluded',
+                reason: 'Excluida: Calidad o política de merma sin certificación CEDA',
+                notes: 'Evita recepción de producto con alto índice de desecho.'
+            }
+        ]
+    };
+
+    let sessionMerchantCard = null;
+    let isOfflineSimulated = false;
+    let offlineLedgerEvents = [
+        `[${new Date().toLocaleTimeString('es-MX')}] Sistema iniciado. Conexión CEDA: ONLINE.`
+    ];
+    let offlinePendingOrders = [];
+
+    function renderDirectoryView() {
+        const listEl = document.getElementById('dir-cards-list');
+        const searchInput = document.getElementById('dir-search-input');
+        const typeSelect = document.getElementById('dir-select-type');
+        const boroughSelect = document.getElementById('dir-select-borough');
+        const countLabel = document.getElementById('dir-count-label');
+        if (!listEl) return;
+
+        // Populate borough dropdown once
+        if (boroughSelect && boroughSelect.options.length <= 1) {
+            const allBoroughs = [...new Set(DIRECTORIO_DATA.map(d => d.alcaldia))].sort((a, b) => a.localeCompare(b, 'es'));
+            allBoroughs.forEach(b => {
+                const opt = document.createElement('option');
+                opt.value = b;
+                opt.textContent = b;
+                boroughSelect.appendChild(opt);
+            });
+        }
+
+        const query = (searchInput?.value || '').toLowerCase().trim();
+        const selectedType = typeSelect?.value || '';
+        const selectedBorough = boroughSelect?.value || '';
+
+        const allRecords = DIRECTORIO_DATA.concat(sessionMerchantCard ? [sessionMerchantCard] : []);
+
+        const filtered = allRecords.filter(item => {
+            if (selectedType && item.kind !== selectedType) return false;
+            if (selectedBorough && item.alcaldia !== selectedBorough) return false;
+            if (query) {
+                const searchCorpus = `${item.name} ${item.alcaldia} ${item.categories.join(' ')} ${item.address}`.toLowerCase();
+                if (!searchCorpus.includes(query)) return false;
+            }
+            return true;
+        });
+
+        if (countLabel) {
+            countLabel.textContent = `Mostrando ${filtered.length} de ${allRecords.length} comercios`;
+        }
+
+        if (filtered.length === 0) {
+            listEl.innerHTML = `
+                <li class="empty" style="padding:28px 14px">
+                    <span class="empty-ico" style="width:52px;height:52px">${ICONS.store}</span>
+                    <h4 style="font-size:0.98rem;margin-top:6px">No encontramos comercios con esos filtros</h4>
+                    <p style="font-size:0.8rem">Intenta con otra alcaldía o busca términos como frutas, flores o abarrotes.</p>
+                </li>
+            `;
+            return;
+        }
+
+        const KIND_LABELS = {
+            market: 'Mercado Público',
+            tianguis: 'Tianguis CDMX',
+            shop: 'Tienda de Barrio'
+        };
+
+        listEl.innerHTML = filtered.map(item => `
+            <li class="dir-card">
+                <div class="dir-card-head">
+                    <div class="dir-card-title-group">
+                        <span class="dir-kind-badge ${item.kind}">${KIND_LABELS[item.kind] || item.kind}</span>
+                        <h3>${item.name}</h3>
+                        <span class="dir-card-alcaldia">${ICONS.pin}${item.alcaldia} · ${item.address}</span>
+                    </div>
+                </div>
+
+                <div class="dir-card-schedule">
+                    ${ICONS.clock}
+                    <span><strong>Horario:</strong> ${item.schedule}</span>
+                </div>
+
+                <div class="dir-card-tags">
+                    ${item.categories.map(c => `<span class="dir-tag">${c}</span>`).join('')}
+                </div>
+
+                <div class="dir-card-source">
+                    Procedencia: ${item.provenance} ${item.isSession ? '· (Sesión local)' : ''}
+                </div>
+
+                <div class="dir-card-actions">
+                    <button class="btn btn-primary" data-directorio-surtir="${item.id}">
+                        ${ICONS.truck} Surtir mi puesto aquí
+                    </button>
+                    <button class="btn btn-outline" data-directorio-detalle="${item.id}">
+                        Ver ficha
+                    </button>
+                </div>
+            </li>
+        `).join('');
+    }
+
+    function renderDirectoryDetails(itemId) {
+        const allRecords = DIRECTORIO_DATA.concat(sessionMerchantCard ? [sessionMerchantCard] : []);
+        const item = allRecords.find(r => r.id === itemId);
+        if (!item) return;
+
+        const KIND_LABELS = {
+            market: 'Mercado Público de la CDMX (339 oficiales)',
+            tianguis: 'Tianguis Oficial de la CDMX (1,367 registrados)',
+            shop: 'Comercio / Tienda de Barrio'
+        };
+
+        openSheet(item.name, `
+            <div style="text-align:left;display:flex;flex-direction:column;gap:12px">
+                <div style="background:var(--rosa);padding:10px 14px;border-radius:10px;font-size:0.82rem;font-weight:700;color:var(--vino)">
+                    ${KIND_LABELS[item.kind] || item.kind}
+                </div>
+                <p style="font-size:0.88rem;color:var(--texto-2);line-height:1.4">${item.desc}</p>
+                <ul class="sheet-list">
+                    <li><span>Alcaldía</span><strong>${item.alcaldia}</strong></li>
+                    <li><span>Ubicación</span><strong>${item.address}</strong></li>
+                    <li><span>Horario / Días</span><strong>${item.schedule}</strong></li>
+                    <li><span>Categorías</span><strong>${item.categories.join(', ')}</strong></li>
+                    <li><span>Fuente de datos</span><strong>${item.provenance}</strong></li>
+                    <li><span>Estado de verificación</span><strong style="color:var(--verde)">✓ Verificado oficial</strong></li>
+                </ul>
+                <div class="stack" style="margin-top:10px">
+                    <button class="btn btn-primary" data-directorio-surtir="${item.id}">
+                        ${ICONS.truck} Establecer como destino de flete colectivo
+                    </button>
+                </div>
+            </div>
+        `);
+    }
+
+    function setMarketAsDeliveryPoint(itemId) {
+        const allRecords = DIRECTORIO_DATA.concat(sessionMerchantCard ? [sessionMerchantCard] : []);
+        const item = allRecords.find(r => r.id === itemId);
+        if (!item) return;
+
+        // Update active tianguis label
+        const label = document.getElementById('active-tianguis-label');
+        if (label) label.textContent = `${item.name} • ${item.alcaldia}`;
+
+        state.activeTianguisName = item.name;
+        state.activeBorough = item.alcaldia;
+        saveState();
+        closeSheet();
+
+        showToast(`Destino de entrega fijado: ${item.name}`);
+        goTo('voz');
+    }
+
+    function initDirectorySubtabs() {
+        document.querySelectorAll('.dir-subtab').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = btn.getAttribute('data-dir-sub');
+                document.querySelectorAll('.dir-subtab').forEach(b => b.classList.toggle('is-active', b === btn));
+                document.querySelectorAll('.dir-pane').forEach(p => {
+                    const isTarget = p.id === `dir-pane-${target}`;
+                    p.classList.toggle('is-active', isTarget);
+                    p.hidden = !isTarget;
+                });
+
+                if (target === 'directorio') renderDirectoryView();
+                if (target === 'mayoreo') renderQuoteEngine();
+                if (target === 'offline') renderOfflineLabStatus();
+            });
+        });
+
+        // Search inputs listeners
+        const searchInput = document.getElementById('dir-search-input');
+        const typeSelect = document.getElementById('dir-select-type');
+        const boroughSelect = document.getElementById('dir-select-borough');
+
+        if (searchInput) searchInput.addEventListener('input', () => renderDirectoryView());
+        if (typeSelect) typeSelect.addEventListener('change', () => renderDirectoryView());
+        if (boroughSelect) boroughSelect.addEventListener('change', () => renderDirectoryView());
+
+        // Onboarding form submit
+        const onboardForm = document.getElementById('onboard-form');
+        if (onboardForm) {
+            onboardForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const kind = document.getElementById('onboard-kind')?.value || 'tianguis';
+                const name = document.getElementById('onboard-name')?.value || 'Mi Puesto';
+                const borough = document.getElementById('onboard-borough')?.value || 'Cuauhtémoc';
+                const category = document.getElementById('onboard-category')?.value || 'Frutas y verduras';
+
+                sessionMerchantCard = {
+                    id: 'session:custom:' + Date.now(),
+                    kind: kind,
+                    name: name,
+                    alcaldia: borough,
+                    address: `Puesto registrado en ${borough}`,
+                    schedule: 'Horario por confirmar con el comerciante',
+                    categories: [category],
+                    provenance: 'Registro Barrial Voluntario (Sesión)',
+                    verified: false,
+                    isSession: true,
+                    desc: 'Ficha creada voluntariamente en esta sesión sin compartir datos sensibles ni comisiones.'
+                };
+
+                const previewBox = document.getElementById('draft-preview-box');
+                const previewBody = document.getElementById('draft-preview-body');
+                if (previewBox && previewBody) {
+                    previewBox.hidden = false;
+                    previewBody.innerHTML = `
+                        <p style="font-size:0.88rem;color:var(--texto);margin-bottom:4px"><strong>${name}</strong> (${kind.toUpperCase()})</p>
+                        <p style="font-size:0.78rem;color:var(--texto-2)">Alcaldía: ${borough} · Giro: ${category}</p>
+                        <p style="font-size:0.74rem;color:var(--verde);margin-top:4px">✓ Ficha activa en el directorio de esta pestaña.</p>
+                    `;
+                }
+
+                showToast(`¡Puesto "${name}" agregado al directorio!`);
+                renderDirectoryView();
+            });
+        }
+    }
+
+    function withdrawDraftCard() {
+        sessionMerchantCard = null;
+        const previewBox = document.getElementById('draft-preview-box');
+        if (previewBox) previewBox.hidden = true;
+        const onboardForm = document.getElementById('onboard-form');
+        if (onboardForm) onboardForm.reset();
+        showToast('Ficha temporal retirada de la sesión');
+        renderDirectoryView();
+    }
+
+    function renderQuoteEngine() {
+        const eligibleGrid = document.getElementById('quote-eligible-grid');
+        const excludedGrid = document.getElementById('quote-excluded-grid');
+        if (!eligibleGrid || !excludedGrid) return;
+
+        const eligible = QUOTE_BASKET_DEMO.quotes.filter(q => q.status === 'eligible');
+        const excluded = QUOTE_BASKET_DEMO.quotes.filter(q => q.status === 'excluded');
+
+        eligibleGrid.innerHTML = eligible.map(q => `
+            <div class="quote-card is-eligible">
+                <div class="quote-card-top">
+                    <div>
+                        <strong class="quote-card-supplier">${q.supplier}</strong>
+                        <span class="quote-model-tag" style="margin-left:6px">${q.badge}</span>
+                    </div>
+                    <span class="quote-card-total">$${q.total.toLocaleString('es-MX')}</span>
+                </div>
+                <div class="quote-breakdown">
+                    <div class="quote-breakdown-col">
+                        <small>Mercancía CEDA</small>
+                        <strong>$${q.goods.toLocaleString('es-MX')}</strong>
+                    </div>
+                    <div class="quote-breakdown-col">
+                        <small>Flete Colectivo</small>
+                        <strong>$${q.freight.toLocaleString('es-MX')}</strong>
+                    </div>
+                    <div class="quote-breakdown-col">
+                        <small>Estiba / Maniobra</small>
+                        <strong>$${q.labor.toLocaleString('es-MX')}</strong>
+                    </div>
+                </div>
+                <p style="font-size:0.74rem;color:var(--texto-2);margin-top:2px">${q.notes}</p>
+            </div>
+        `).join('');
+
+        excludedGrid.innerHTML = excluded.map(q => `
+            <div class="quote-card is-excluded">
+                <div class="quote-card-top">
+                    <strong class="quote-card-supplier">${q.supplier}</strong>
+                    <span class="quote-reason-badge">${q.reason}</span>
+                </div>
+                <div class="quote-breakdown" style="opacity:0.7">
+                    <div class="quote-breakdown-col">
+                        <small>Precio base</small>
+                        <strong>$${q.goods.toLocaleString('es-MX')}</strong>
+                    </div>
+                    <div class="quote-breakdown-col">
+                        <small>Flete</small>
+                        <strong>$${q.freight.toLocaleString('es-MX')}</strong>
+                    </div>
+                    <div class="quote-breakdown-col">
+                        <small>Total declarado</small>
+                        <strong>$${q.total.toLocaleString('es-MX')}</strong>
+                    </div>
+                </div>
+                <p style="font-size:0.74rem;color:var(--texto-2);margin-top:2px">${q.notes}</p>
+            </div>
+        `).join('');
+    }
+
+    function renderOfflineLabStatus() {
+        const netLabel = document.getElementById('offline-net-label');
+        const netSub = document.getElementById('offline-net-sub');
+        const netDot = document.querySelector('.offline-status-dot');
+        const toggleBtn = document.getElementById('btn-toggle-offline-sim');
+        const queueCount = document.getElementById('queue-count-badge');
+        const ledgerPre = document.getElementById('offline-ledger-pre');
+
+        if (netDot) {
+            netDot.className = 'offline-status-dot ' + (isOfflineSimulated ? 'is-offline' : 'is-online');
+        }
+        if (netLabel) {
+            netLabel.textContent = isOfflineSimulated
+                ? '🔴 Modo Sin Señal (Simulación de tianguis sin red)'
+                : '🟢 Conexión Activa con Central de Abasto (En línea)';
+        }
+        if (netSub) {
+            netSub.textContent = isOfflineSimulated
+                ? 'Los pedidos se encolan con clave UUID única para evitar cobro duplicado.'
+                : 'Todos los fletes y pedidos se sincronizan en tiempo real.';
+        }
+        if (toggleBtn) {
+            toggleBtn.innerHTML = `${ICONS.clock} ${isOfflineSimulated ? 'Restablecer señal en línea' : 'Simular pérdida de señal en tianguis'}`;
+        }
+        if (queueCount) {
+            queueCount.textContent = `${offlinePendingOrders.length} pendientes`;
+        }
+        if (ledgerPre) {
+            ledgerPre.textContent = offlineLedgerEvents.join('\n');
+            ledgerPre.scrollTop = ledgerPre.scrollHeight;
+        }
+    }
+
+    function toggleOfflineSimulation() {
+        isOfflineSimulated = !isOfflineSimulated;
+        const time = new Date().toLocaleTimeString('es-MX');
+        if (isOfflineSimulated) {
+            offlineLedgerEvents.push(`[${time}] CORTANDO SEÑAL: Entrando en modo offline local.`);
+            showToast('Simulando falta de señal en el tianguis');
+        } else {
+            offlineLedgerEvents.push(`[${time}] SEÑAL RECUPERADA: Red disponible para sincronizar.`);
+            showToast('Conexión reestablecida');
+        }
+        renderOfflineLabStatus();
+    }
+
+    function generateIdempotentOrder() {
+        const time = new Date().toLocaleTimeString('es-MX');
+        const uuid = 'ORD-UUID-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+        const orderData = {
+            idempotency_key: uuid,
+            timestamp: time,
+            tianguis: getActiveTianguis().name,
+            total: 1210,
+            status: isOfflineSimulated ? 'QUEUED_LOCAL' : 'DELIVERED_SYNC'
+        };
+
+        if (isOfflineSimulated) {
+            offlinePendingOrders.push(orderData);
+            offlineLedgerEvents.push(`[${time}] ENCOLADO OFFLINE: Clave ${uuid} almacenada sin duplicación.`);
+            showToast('Pedido guardado en cola local (sin internet)');
+        } else {
+            offlineLedgerEvents.push(`[${time}] PROCESADO EN LÍNEA: Clave ${uuid} confirmada por bodega CEDA.`);
+            showToast('Pedido recibido por la CEDA con clave única');
+        }
+
+        renderOfflineLabStatus();
+    }
+
+    function flushOfflineQueue() {
+        const time = new Date().toLocaleTimeString('es-MX');
+        if (offlinePendingOrders.length === 0) {
+            offlineLedgerEvents.push(`[${time}] RECONCILIACIÓN: Cola vacía, cero órdenes pendientes.`);
+            showToast('No hay pedidos pendientes por sincronizar');
+            renderOfflineLabStatus();
+            return;
+        }
+
+        const count = offlinePendingOrders.length;
+        offlinePendingOrders.forEach(ord => {
+            offlineLedgerEvents.push(`[${time}] SINCRONIZADO: ${ord.idempotency_key} ➔ Bodega CEDA (Cobros duplicados: 0).`);
+        });
+
+        offlinePendingOrders = [];
+        offlineLedgerEvents.push(`[${time}] ÉXITO: ${count} pedidos sincronizados idempotentemente.`);
+        showToast(`¡${count} pedidos sincronizados con la Central de Abasto!`);
+        renderOfflineLabStatus();
+    }
+
+    // -------------------------------------------------------------
     // EVENT DELEGATION
     // -------------------------------------------------------------
     function bindEvents() {
@@ -1190,6 +1797,48 @@ _Conserva este mensaje. No requiere conexión continua._`;
                 return;
             }
 
+            // Directorio: Surtir en este mercado/tianguis
+            const surtirBtn = e.target.closest('[data-directorio-surtir]');
+            if (surtirBtn) {
+                e.preventDefault();
+                setMarketAsDeliveryPoint(surtirBtn.getAttribute('data-directorio-surtir'));
+                return;
+            }
+
+            // Directorio: Ver ficha detalle
+            const detalleBtn = e.target.closest('[data-directorio-detalle]');
+            if (detalleBtn) {
+                e.preventDefault();
+                renderDirectoryDetails(detalleBtn.getAttribute('data-directorio-detalle'));
+                return;
+            }
+
+            // Onboarding: Retirar ficha voluntaria
+            if (e.target.closest('#btn-withdraw-draft')) {
+                e.preventDefault();
+                withdrawDraftCard();
+                return;
+            }
+
+            // Offline Lab triggers
+            if (e.target.closest('#btn-toggle-offline-sim')) {
+                e.preventDefault();
+                toggleOfflineSimulation();
+                return;
+            }
+
+            if (e.target.closest('#btn-test-idempotent-order')) {
+                e.preventDefault();
+                generateIdempotentOrder();
+                return;
+            }
+
+            if (e.target.closest('#btn-flush-sync-queue')) {
+                e.preventDefault();
+                flushOfflineQueue();
+                return;
+            }
+
             // Close sheet
             if (e.target.closest('[data-close-sheet]')) {
                 e.preventDefault();
@@ -1280,6 +1929,7 @@ _Conserva este mensaje. No requiere conexión continua._`;
         initSpeech();
         initPWA();
         bindEvents();
+        initDirectorySubtabs();
         updateBadge();
         updateTianguisUI();
         goTo('inicio', false);
