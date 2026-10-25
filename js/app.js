@@ -477,7 +477,7 @@ const App = {
                                 <span>${product.rating.toFixed(1)}</span>
                             </span>
                             <span>(${product.reviewsCount} opiniones)</span>
-                            <span>|</span>
+                            <span class="meta-dot"></span>
                             <span>${product.stock > 0 ? `${product.stock} en stock` : 'Agotado'}</span>
                         </div>
                         <div class="product-price-section">
@@ -654,7 +654,7 @@ const App = {
                                 <h3 class="product-title" onclick="App.openProductModal('${product.id}')">${product.name}</h3>
                                 <div class="product-meta-row">
                                     <span class="rating-pill">${getIcon('star')} ${product.rating.toFixed(1)}</span>
-                                    <span>|</span>
+                                    <span class="meta-dot"></span>
                                     <span>${product.stock} disponibles</span>
                                 </div>
                                 <div class="product-price-section">
@@ -716,7 +716,7 @@ const App = {
                     <div class="product-meta-row">
                         <span class="rating-pill">${getIcon('star')} ${product.rating.toFixed(1)}</span>
                         <span>(${product.reviewsCount} opiniones verificadas)</span>
-                        <span>|</span>
+                        <span class="meta-dot"></span>
                         <span>SKU: ${product.sku || 'N/A'}</span>
                     </div>
 
@@ -942,6 +942,33 @@ const App = {
         this.dom.checkoutModalOverlay.classList.remove('active');
     },
 
+    selectDeliveryCard(cardEl) {
+        if (!cardEl) return;
+        const grid = cardEl.closest('.luxury-selection-grid');
+        if (grid) {
+            grid.querySelectorAll('.luxury-selection-card').forEach(c => c.classList.remove('selected'));
+        }
+        cardEl.classList.add('selected');
+        const radio = cardEl.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+            this.updateCheckoutTotals();
+        }
+    },
+
+    selectPaymentCard(cardEl) {
+        if (!cardEl) return;
+        const grid = cardEl.closest('.luxury-selection-grid');
+        if (grid) {
+            grid.querySelectorAll('.luxury-selection-card').forEach(c => c.classList.remove('selected'));
+        }
+        cardEl.classList.add('selected');
+        const radio = cardEl.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.checked = true;
+        }
+    },
+
     handleCheckoutSubmit() {
         const cartDetails = storeManager.getCartDetails();
         if (cartDetails.items.length === 0) return;
@@ -1147,7 +1174,7 @@ const App = {
                         </td>
                         <td>
                             <strong style="color: var(--text-primary); display: block;">${p.name}</strong>
-                            <span style="font-size: 0.72rem; color: var(--text-muted);">${p.sku || 'Sin SKU'} | Cat: ${p.category}</span>
+                            <span style="font-size: 0.72rem; color: var(--text-muted);">${p.sku || 'Sin SKU'} <span class="meta-dot"></span> Cat: ${p.category}</span>
                         </td>
                         <td><strong>$${p.price.toLocaleString('es-MX')}</strong> MXN</td>
                         <td>
@@ -1202,12 +1229,17 @@ const App = {
                             </td>
                             <td><strong>$${subtotalStore.toLocaleString('es-MX')}</strong> MXN</td>
                             <td>
-                                <select class="select-custom" onchange="App.handleOrderStatusChange('${order.id}', this.value)" style="padding: 4px 8px; font-size: 0.75rem;">
-                                    <option value="pendiente" ${order.status === 'pendiente' ? 'selected' : ''}>Pendiente</option>
-                                    <option value="preparacion" ${order.status === 'preparacion' ? 'selected' : ''}>En Preparación</option>
-                                    <option value="listo" ${order.status === 'listo' ? 'selected' : ''}>Listo p/ Entrega</option>
-                                    <option value="entregado" ${order.status === 'entregado' ? 'selected' : ''}>Entregado</option>
-                                </select>
+                                <div class="luxury-select-wrapper">
+                                    <select class="luxury-select" onchange="App.handleOrderStatusChange('${order.id}', this.value)" style="padding: 4px 28px 4px 8px; font-size: 0.75rem;">
+                                        <option value="pendiente" ${order.status === 'pendiente' ? 'selected' : ''}>Pendiente</option>
+                                        <option value="preparacion" ${order.status === 'preparacion' ? 'selected' : ''}>En Preparación</option>
+                                        <option value="listo" ${order.status === 'listo' ? 'selected' : ''}>Listo p/ Entrega</option>
+                                        <option value="entregado" ${order.status === 'entregado' ? 'selected' : ''}>Entregado</option>
+                                    </select>
+                                    <span class="select-chevron-icon" style="right: 8px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </span>
+                                </div>
                             </td>
                             <td>
                                 <button class="btn btn-secondary btn-sm" onclick="App.openChatModal('${store.id}')">

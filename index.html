@@ -6,6 +6,11 @@
     <title>MERCADO URBANO | Plataforma Comercial entre Locatarios y Clientes</title>
     <meta name="description" content="Plataforma comercial moderna y elegante que conecta a locatarios con compradores. Compra productos locales con retiro en mostrador o entrega a domicilio.">
     
+    <!-- Google Fonts Typography (Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Design System Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -104,48 +109,85 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <div class="hero-pill">
+                            <span class="pulse-dot-rose"></span>
                             <span id="hero-shield-icon"></span>
-                            <span>Comercio Directo Local y Seguro</span>
+                            <span>Comercio Directo de Autor</span>
                         </div>
                         <h1 class="hero-title">El marketplace que une a <span>locatarios y clientes</span></h1>
                         <p class="hero-desc">
-                            Adquiere productos directamente de los locatarios de nuestra plaza comercial. Garantía de compra, atención personalizada por mostrador o entrega local ágil.
+                            Adquiere piezas exclusivas y productos seleccionados directamente de los locatarios de nuestra plaza comercial. Garantía de mostrador, trato directo y entrega protegida.
                         </p>
                         <div class="hero-badges-row">
                             <div class="hero-feature-item">
                                 <span id="feat-check-1"></span>
-                                <span>Recoge en Mostrador</span>
+                                <span>Garantía de Mostrador</span>
                             </div>
                             <div class="hero-feature-item">
                                 <span id="feat-check-2"></span>
-                                <span>Envío Exprés Local</span>
+                                <span>Retiro en Pasillo o Envío</span>
                             </div>
                             <div class="hero-feature-item">
                                 <span id="feat-check-3"></span>
-                                <span>Trato Directo con el Locatario</span>
+                                <span>Trato Directo sin Intermediarios</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Quick Highlights Counter -->
-                    <div class="hero-quick-stats">
-                        <div class="stat-box">
-                            <div class="stat-box-val">6</div>
-                            <div class="stat-box-lbl">Locales Verificados</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-box-val">100%</div>
-                            <div class="stat-box-lbl">Garantía Comercial</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-box-val">4.9</div>
-                            <div class="stat-box-lbl">Calificación Media</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-box-val">0%</div>
-                            <div class="stat-box-lbl">Comisión Oculta</div>
+                    <!-- Luxury Editorial Showcase Card -->
+                    <div class="hero-showcase-card">
+                        <div class="showcase-card-inner">
+                            <div class="showcase-header">
+                                <div class="showcase-live-badge">
+                                    <span class="live-dot"></span>
+                                    <span>Plaza Abierta Hoy</span>
+                                </div>
+                                <span class="showcase-rating"><span id="showcase-rating-star"></span> 4.9 / 5.0</span>
+                            </div>
+                            <div class="showcase-center">
+                                <div class="showcase-title">Pabellón Comercial</div>
+                                <div class="showcase-subtitle">6 Locales Oficiales Verificados</div>
+                            </div>
+                            <div class="showcase-footer">
+                                <div class="showcase-stat-pill">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Comercio Local</span>
+                                </div>
+                                <div class="showcase-stat-pill">
+                                    <span class="stat-number">0%</span>
+                                    <span class="stat-label">Comisión Oculta</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="App.navigate('locatarios')">
+                                    <span>Ver Locales</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Distinction Marquee Ribbon -->
+            <div class="luxury-marquee-wrap">
+                <div class="luxury-marquee-track">
+                    <span class="marquee-item">LOCALES FÍSICOS VERIFICADOS</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">GARANTÍA DIRECTA DE MOSTRADOR</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">CALIDAD DE AUTOR</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">PAGO PROTEGIDO</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">RETIRO INMEDIATO O ENVÍO EXPRÉS</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">LOCALES FÍSICOS VERIFICADOS</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">GARANTÍA DIRECTA DE MOSTRADOR</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">CALIDAD DE AUTOR</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">PAGO PROTEGIDO</span>
+                    <span class="marquee-diamond"></span>
+                    <span class="marquee-item">RETIRO INMEDIATO O ENVÍO EXPRÉS</span>
+                    <span class="marquee-diamond"></span>
                 </div>
             </div>
         </section>
@@ -158,23 +200,27 @@
             </div>
 
             <!-- Filter Controls Bar -->
-            <div class="section-head" style="margin-top: 16px;">
+            <div class="section-head" style="margin-top: 20px;">
                 <div>
                     <h2 class="section-title">
                         <span id="catalog-icon"></span>
                         <span>Catálogo General</span>
                     </h2>
-                    <div class="section-subtitle">Explora artículos disponibles de todos los locatarios oficiales</div>
+                    <div class="section-subtitle">Artículos disponibles con retiro en mostrador o entrega a domicilio</div>
                 </div>
 
                 <div class="filter-controls">
-                    <label for="sort-select" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">ORDENAR POR:</label>
-                    <select id="sort-select" class="select-custom">
-                        <option value="destacados">Artículos Destacados</option>
-                        <option value="menor-precio">Menor Precio</option>
-                        <option value="mayor-precio">Mayor Precio</option>
-                        <option value="calificacion">Mejor Calificación</option>
-                    </select>
+                    <div class="luxury-select-wrapper">
+                        <select id="sort-select" class="luxury-select">
+                            <option value="destacados">Artículos Destacados</option>
+                            <option value="menor-precio">Menor Precio</option>
+                            <option value="mayor-precio">Mayor Precio</option>
+                            <option value="calificacion">Mejor Calificación</option>
+                        </select>
+                        <span class="select-chevron-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -274,10 +320,15 @@
 
                     <!-- Store Switcher for Demo/Testing Multiple Vendors -->
                     <div class="vendor-store-selector">
-                        <label for="vendor-store-select" style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">LOCAL ACTIVO:</label>
-                        <select id="vendor-store-select" class="select-custom" style="border: none; background: transparent; padding: 4px;">
-                            <!-- Dynamically populated options -->
-                        </select>
+                        <label for="vendor-store-select" style="font-size: 0.76rem; font-weight: 700; color: var(--rosa-mexicano-bright); text-transform: uppercase; letter-spacing: 0.5px;">Local:</label>
+                        <div class="luxury-select-wrapper">
+                            <select id="vendor-store-select" class="luxury-select" style="padding: 6px 32px 6px 12px; font-size: 0.8rem;">
+                                <!-- Dynamically populated options -->
+                            </select>
+                            <span class="select-chevron-icon" style="right: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
@@ -488,48 +539,87 @@
                     </div>
 
                     <!-- Delivery Choice -->
-                    <h4 style="font-size: 0.82rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px;">2. Modalidad de Entrega</h4>
-                    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
-                        <label style="display: flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); cursor: pointer;">
-                            <input type="radio" name="checkout-delivery" value="pickup" checked>
-                            <div style="flex: 1;">
-                                <strong style="font-size: 0.88rem; color: var(--text-primary); display: block;">Recoger en el Local del Mercado</strong>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">Sin costo adicional. Retira directamente en el mostrador del locatario.</span>
+                    <div class="checkout-step-title">
+                        <span class="step-badge">2</span>
+                        <h4>Modalidad de Entrega</h4>
+                    </div>
+                    <div class="luxury-selection-grid">
+                        <label class="luxury-selection-card selected" onclick="App.selectDeliveryCard(this)">
+                            <input type="radio" name="checkout-delivery" value="pickup" checked class="luxury-hidden-radio">
+                            <div class="selection-card-header">
+                                <span class="selection-card-icon" id="icon-pickup-delivery"></span>
+                                <span class="selection-check-ring"></span>
                             </div>
-                            <span class="badge badge-emerald">Gratis</span>
+                            <div class="selection-card-body">
+                                <div class="flex items-center justify-between">
+                                    <strong class="selection-card-name">Retiro en Mostrador</strong>
+                                    <span class="badge badge-emerald">Sin Costo</span>
+                                </div>
+                                <p class="selection-card-desc">Recoge directamente en el local oficial del mercado.</p>
+                            </div>
                         </label>
 
-                        <label style="display: flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); cursor: pointer;">
-                            <input type="radio" name="checkout-delivery" value="shipping">
-                            <div style="flex: 1;">
-                                <strong style="font-size: 0.88rem; color: var(--text-primary); display: block;">Envío Local a Domicilio</strong>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">Entrega en CDMX y área metropolitana en 24 a 48 hrs.</span>
+                        <label class="luxury-selection-card" onclick="App.selectDeliveryCard(this)">
+                            <input type="radio" name="checkout-delivery" value="shipping" class="luxury-hidden-radio">
+                            <div class="selection-card-header">
+                                <span class="selection-card-icon" id="icon-shipping-delivery"></span>
+                                <span class="selection-check-ring"></span>
                             </div>
-                            <span class="badge badge-dark">+$65 MXN</span>
+                            <div class="selection-card-body">
+                                <div class="flex items-center justify-between">
+                                    <strong class="selection-card-name">Envío Local Exprés</strong>
+                                    <span class="badge badge-rosa">+$65 MXN</span>
+                                </div>
+                                <p class="selection-card-desc">Entrega garantizada en CDMX y área metropolitana (24 a 48 hrs).</p>
+                            </div>
                         </label>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="checkout-address">Dirección o Instrucciones de Retiro</label>
+                    <div class="form-group" style="margin-top: 14px;">
+                        <label class="form-label" for="checkout-address">Dirección o Referencias del Local</label>
                         <input type="text" id="checkout-address" class="form-control" value="Col. Roma Norte, Calle Orizaba #45, Depto 302" required>
                     </div>
 
                     <!-- Payment Method -->
-                    <h4 style="font-size: 0.82rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin: 16px 0 10px;">3. Método de Pago</h4>
-                    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
-                        <label style="display: flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); cursor: pointer;">
-                            <input type="radio" name="checkout-payment" value="Tarjeta de Crédito / Débito" checked>
-                            <span style="font-size: 0.85rem; font-weight: 600;">Tarjeta de Crédito / Débito (En línea)</span>
+                    <div class="checkout-step-title">
+                        <span class="step-badge">3</span>
+                        <h4>Método de Pago Seguro</h4>
+                    </div>
+                    <div class="luxury-selection-grid">
+                        <label class="luxury-selection-card selected" onclick="App.selectPaymentCard(this)">
+                            <input type="radio" name="checkout-payment" value="Tarjeta de Crédito / Débito" checked class="luxury-hidden-radio">
+                            <div class="selection-card-header">
+                                <span class="selection-card-icon" id="icon-payment-card"></span>
+                                <span class="selection-check-ring"></span>
+                            </div>
+                            <div class="selection-card-body">
+                                <strong class="selection-card-name">Tarjeta Bancaria</strong>
+                                <p class="selection-card-desc">Crédito o Débito con tokenización bancaria segura</p>
+                            </div>
                         </label>
 
-                        <label style="display: flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); cursor: pointer;">
-                            <input type="radio" name="checkout-payment" value="Transferencia SPEI Directa">
-                            <span style="font-size: 0.85rem; font-weight: 600;">Transferencia SPEI directa al Locatario</span>
+                        <label class="luxury-selection-card" onclick="App.selectPaymentCard(this)">
+                            <input type="radio" name="checkout-payment" value="Transferencia SPEI Directa" class="luxury-hidden-radio">
+                            <div class="selection-card-header">
+                                <span class="selection-card-icon" id="icon-payment-spei"></span>
+                                <span class="selection-check-ring"></span>
+                            </div>
+                            <div class="selection-card-body">
+                                <strong class="selection-card-name">Transferencia SPEI</strong>
+                                <p class="selection-card-desc">Transferencia instantánea directa a la cuenta del locatario</p>
+                            </div>
                         </label>
 
-                        <label style="display: flex; align-items: center; gap: 10px; background: var(--bg-card); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); cursor: pointer;">
-                            <input type="radio" name="checkout-payment" value="Efectivo en Mostrador al Recoger">
-                            <span style="font-size: 0.85rem; font-weight: 600;">Efectivo en Mostrador al Recoger</span>
+                        <label class="luxury-selection-card" onclick="App.selectPaymentCard(this)">
+                            <input type="radio" name="checkout-payment" value="Efectivo en Mostrador al Recoger" class="luxury-hidden-radio">
+                            <div class="selection-card-header">
+                                <span class="selection-card-icon" id="icon-payment-cash"></span>
+                                <span class="selection-check-ring"></span>
+                            </div>
+                            <div class="selection-card-body">
+                                <strong class="selection-card-name">Efectivo al Recoger</strong>
+                                <p class="selection-card-desc">Liquida en mostrador al inspeccionar tus productos</p>
+                            </div>
                         </label>
                     </div>
 
@@ -593,13 +683,18 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="vp-category">Categoría</label>
-                            <select id="vp-category" class="form-control" required>
-                                <option value="gourmet">Gourmet & Café</option>
-                                <option value="moda">Moda & Calzado</option>
-                                <option value="joyeria">Joyería & Plata</option>
-                                <option value="tecnologia">Tecnología & Audio</option>
-                                <option value="hogar">Hogar & Cerámica</option>
-                            </select>
+                            <div class="luxury-select-wrapper" style="width: 100%;">
+                                <select id="vp-category" class="luxury-select" style="width: 100%;" required>
+                                    <option value="gourmet">Gourmet & Café</option>
+                                    <option value="moda">Moda & Calzado</option>
+                                    <option value="joyeria">Joyería & Plata</option>
+                                    <option value="tecnologia">Tecnología & Audio</option>
+                                    <option value="hogar">Hogar & Cerámica</option>
+                                </select>
+                                <span class="select-chevron-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="vp-badge">Etiqueta Destacada</label>
@@ -766,6 +861,13 @@
             setHtml('feat-check-1', 'check');
             setHtml('feat-check-2', 'check');
             setHtml('feat-check-3', 'check');
+            setHtml('showcase-rating-star', 'star');
+
+            setHtml('icon-pickup-delivery', 'store');
+            setHtml('icon-shipping-delivery', 'truck');
+            setHtml('icon-payment-card', 'creditCard');
+            setHtml('icon-payment-spei', 'bank');
+            setHtml('icon-payment-cash', 'cash');
 
             setHtml('catalog-icon', 'tag');
             setHtml('stores-icon-title', 'store');
