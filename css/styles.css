@@ -23,23 +23,23 @@
     --primary-text: #0B0A11;
     --primary-glow: 0 0 20px rgba(255, 255, 255, 0.28);
 
-    /* Secundarios (Rosa Mexicano Legendario) */
+    /* Secundarios (Rosa Mexicano Legendario - Acentos de Alta Gama) */
     --rosa-mexicano: #E4007C;
-    --rosa-mexicano-light: rgba(228, 0, 124, 0.14);
-    --rosa-mexicano-border: rgba(228, 0, 124, 0.38);
+    --rosa-mexicano-light: rgba(228, 0, 124, 0.12);
+    --rosa-mexicano-border: rgba(228, 0, 124, 0.32);
     --rosa-mexicano-hover: #C20066;
     --rosa-mexicano-bright: #FF2E93;
-    --rosa-mexicano-glow: 0 0 24px rgba(228, 0, 124, 0.38);
+    --rosa-mexicano-glow: 0 0 14px rgba(228, 0, 124, 0.22);
 
     /* Accents de Soporte */
     --accent-emerald: #10B981;
-    --accent-emerald-light: rgba(16, 185, 129, 0.14);
+    --accent-emerald-light: rgba(16, 185, 129, 0.12);
 
     --accent-blue: #38BDF8;
     --accent-blue-light: rgba(56, 189, 248, 0.12);
 
     --accent-rose: #E4007C;
-    --accent-rose-light: rgba(228, 0, 124, 0.16);
+    --accent-rose-light: rgba(228, 0, 124, 0.14);
 
     /* Text Colors */
     --text-primary: #FFFFFF;
@@ -47,11 +47,11 @@
     --text-muted: #8896AB;
     --text-inverse: #0B0A11;
 
-    /* Glassmorphism & Elevation */
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    /* Glassmorphism & Elevation Soberbio (Sin halos cyber-phonk) */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 12px 30px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(228, 0, 124, 0.12);
-    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(228, 0, 124, 0.18);
+    --shadow-md: 0 12px 28px -4px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 24px 48px -10px rgba(0, 0, 0, 0.75), 0 8px 24px rgba(0, 0, 0, 0.5);
 
     /* Spacing & Radii */
     --radius-sm: 6px;
@@ -247,13 +247,13 @@ img {
 .btn-primary {
     background: #FFFFFF;
     color: #0B0A11;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.25), 0 0 12px rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 .btn-primary:hover {
     background: #F8FAFC;
     color: #000000;
-    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.45), 0 0 25px rgba(228, 0, 124, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
 }
 .btn-primary:active {
@@ -262,28 +262,28 @@ img {
 
 /* Secundario Glassmórfico */
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
     color: #FFFFFF;
 }
 
 /* Botón Rosa Mexicano Destacado */
 .btn-rosa {
-    background: linear-gradient(135deg, #E4007C 0%, #A20056 100%);
+    background: #E4007C;
     color: #FFFFFF;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 16px rgba(228, 0, 124, 0.35);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 .btn-rosa:hover {
-    background: linear-gradient(135deg, #FF1493 0%, #E4007C 100%);
-    box-shadow: 0 6px 22px rgba(228, 0, 124, 0.55);
+    background: #D81B60;
+    box-shadow: 0 6px 18px rgba(228, 0, 124, 0.35);
     transform: translateY(-1px);
 }
 
@@ -658,97 +658,113 @@ img {
 }
 
 /* ==========================================================================
-   BANNER HERO / MARKETPLACE PROMO (Glassmorphism & Rosa Mexicano)
+   BANNER HERO / MARKETPLACE PROMO (Haute-Couture Editorial Luxury)
    ========================================================================== */
 .hero-banner {
     position: relative;
-    padding: 32px 0;
-    background: radial-gradient(circle at 10% 20%, rgba(228, 0, 124, 0.18) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, rgba(20, 16, 28, 0.95) 0%, var(--bg-base) 100%);
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 44px 0 28px;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+                linear-gradient(180deg, #130F1C 0%, var(--bg-base) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
+    align-items: center;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 960px) {
     .hero-content {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        gap: 48px;
     }
 }
 
 .hero-text {
-    max-width: 680px;
+    max-width: 660px;
 }
 
 .hero-pill {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: var(--rosa-mexicano-light);
-    color: var(--rosa-mexicano-bright);
-    border: 1px solid var(--rosa-mexicano-border);
-    padding: 4px 12px;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 5px 14px;
     border-radius: var(--radius-full);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    margin-bottom: 12px;
-    box-shadow: 0 0 16px rgba(228, 0, 124, 0.2);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-pill svg {
+    color: var(--rosa-mexicano-bright);
 }
 
 .hero-title {
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.7px;
-    margin-bottom: 10px;
+    line-height: 1.18;
+    letter-spacing: -0.6px;
+    margin-bottom: 14px;
     color: #FFFFFF;
 }
 
 @media (min-width: 768px) {
     .hero-title {
-        font-size: 2.35rem;
+        font-size: 2.5rem;
+        letter-spacing: -0.8px;
     }
 }
 
 .hero-title span {
-    background: linear-gradient(135deg, #FF2E93 0%, #E4007C 50%, #FFFFFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--rosa-mexicano-bright);
+    font-weight: 800;
+    background: none;
+    -webkit-text-fill-color: initial;
 }
 
 .hero-desc {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 22px;
 }
 
 .hero-badges-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .hero-feature-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
     color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.hero-feature-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .hero-feature-item svg {
@@ -756,37 +772,28 @@ img {
 }
 
 /* ==========================================================================
-   HERO SHOWCASE CARD (Editorial Haute-Couture) & MARQUEE RIBBON
+   HERO SHOWCASE CARD (Editorial Haute-Couture)
    ========================================================================== */
 .hero-showcase-card {
     width: 100%;
-    max-width: 380px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(228, 0, 124, 0.06) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    max-width: 390px;
+    background: rgba(22, 17, 30, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-xl);
-    padding: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(228, 0, 124, 0.15);
+    padding: 22px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+    flex-shrink: 0;
 }
 
 .hero-showcase-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(228, 0, 124, 0.25);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-.hero-showcase-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--rosa-mexicano-bright), #FFFFFF, transparent);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55);
 }
 
 .showcase-card-inner {
@@ -851,9 +858,18 @@ img {
 }
 
 .showcase-center {
-    padding: 8px 0;
+    padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.showcase-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--rosa-mexicano-bright);
+    text-transform: uppercase;
+    margin-bottom: 3px;
 }
 
 .showcase-title {
@@ -891,58 +907,151 @@ img {
 
 .showcase-stat-pill .stat-label {
     font-size: 0.66rem;
-    color: var(--rosa-mexicano-bright);
+    color: var(--text-muted);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.4px;
 }
 
-/* Distinction Marquee Ribbon */
+/* ==========================================================================
+   SEASONAL PRICE INDEX TICKER (Bucle Infinito de Anuncios y Fluctuaciones)
+   ========================================================================== */
 .luxury-marquee-wrap {
     width: 100%;
-    margin-top: 28px;
-    padding: 10px 0;
-    background: rgba(14, 11, 20, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    margin-top: 24px;
+    background: rgba(13, 10, 18, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-fixed-badge {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: #0E0C14;
+    padding: 10px 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    box-shadow: 8px 0 16px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+}
+
+.ticker-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rosa-mexicano-bright);
+    box-shadow: 0 0 8px rgba(228, 0, 124, 0.6);
+    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    flex-shrink: 0;
+}
+
+.ticker-badge-text {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
 .luxury-marquee-track {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 14px;
     white-space: nowrap;
     width: max-content;
-    animation: luxuryMarquee 35s linear infinite;
+    padding: 9px 0 9px 16px;
+    animation: luxuryTickerScroll 55s linear infinite;
+    will-change: transform;
 }
 
 .luxury-marquee-track:hover {
     animation-play-state: paused;
 }
 
-.marquee-item {
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    font-size: 0.76rem;
+    color: #FFFFFF;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ticker-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ticker-season {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.ticker-name {
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.ticker-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.82);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
 }
 
-.marquee-diamond {
-    width: 5px;
-    height: 5px;
-    background: var(--rosa-mexicano-bright);
-    transform: rotate(45deg);
-    display: inline-block;
-    box-shadow: 0 0 6px var(--rosa-mexicano);
-    flex-shrink: 0;
+.ticker-trend.trend-up {
+    background: rgba(16, 185, 129, 0.14);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.28);
 }
 
-@keyframes luxuryMarquee {
+.ticker-trend.trend-down {
+    background: rgba(228, 0, 124, 0.14);
+    color: var(--rosa-mexicano-bright);
+    border: 1px solid rgba(228, 0, 124, 0.32);
+}
+
+.ticker-trend.trend-stable {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ticker-price {
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.ticker-reason {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+@keyframes luxuryTickerScroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
@@ -1060,9 +1169,24 @@ img {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
+}
+
+.section-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--rosa-mexicano-bright);
+    margin-bottom: 3px;
 }
 
 .section-title {
@@ -1073,6 +1197,7 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.25;
 }
 
 .section-title svg {
@@ -1080,10 +1205,10 @@ img {
 }
 
 .section-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: var(--text-muted);
     font-weight: 500;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .filter-controls {

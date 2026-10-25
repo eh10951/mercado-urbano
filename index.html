@@ -109,13 +109,13 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <div class="hero-pill">
-                            <span class="pulse-dot-rose"></span>
+                            <span class="ticker-live-dot" style="width: 6px; height: 6px;"></span>
                             <span id="hero-shield-icon"></span>
                             <span>Comercio Directo de Autor</span>
                         </div>
-                        <h1 class="hero-title">El marketplace que une a <span>locatarios y clientes</span></h1>
+                        <h1 class="hero-title">Mercado Oficial entre <span>Locatarios y Clientes</span></h1>
                         <p class="hero-desc">
-                            Adquiere piezas exclusivas y productos seleccionados directamente de los locatarios de nuestra plaza comercial. Garantía de mostrador, trato directo y entrega protegida.
+                            Adquiere piezas selectas, productos artesanales y alimentos de temporada con trato directo en cada local. Respaldado con garantía de mostrador, retiro exprés o entrega protegida.
                         </p>
                         <div class="hero-badges-row">
                             <div class="hero-feature-item">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="hero-feature-item">
                                 <span id="feat-check-3"></span>
-                                <span>Trato Directo sin Intermediarios</span>
+                                <span>Trato Directo con el Locatario</span>
                             </div>
                         </div>
                     </div>
@@ -144,8 +144,9 @@
                                 <span class="showcase-rating"><span id="showcase-rating-star"></span> 4.9 / 5.0</span>
                             </div>
                             <div class="showcase-center">
+                                <div class="showcase-eyebrow">ESTABLECIMIENTOS AFILIADOS</div>
                                 <div class="showcase-title">Pabellón Comercial</div>
-                                <div class="showcase-subtitle">6 Locales Oficiales Verificados</div>
+                                <div class="showcase-subtitle">6 Locales Verificados con Venta en Mostrador</div>
                             </div>
                             <div class="showcase-footer">
                                 <div class="showcase-stat-pill">
@@ -157,7 +158,7 @@
                                     <span class="stat-label">Comisión Oculta</span>
                                 </div>
                                 <button class="btn btn-primary btn-sm" onclick="App.navigate('locatarios')">
-                                    <span>Ver Locales</span>
+                                    <span>Explorar Locales</span>
                                 </button>
                             </div>
                         </div>
@@ -165,29 +166,142 @@
                 </div>
             </div>
 
-            <!-- Distinction Marquee Ribbon -->
-            <div class="luxury-marquee-wrap">
+            <!-- Market Seasonality & Price Index Ticker (Bucle Continuo de Precios y Temporadas) -->
+            <div class="luxury-marquee-wrap" aria-label="Indicador de Tendencias de Precios por Temporada">
+                <div class="marquee-fixed-badge">
+                    <span class="ticker-live-dot"></span>
+                    <span class="ticker-badge-text">TENDENCIAS ESTACIONALES</span>
+                </div>
                 <div class="luxury-marquee-track">
-                    <span class="marquee-item">LOCALES FÍSICOS VERIFICADOS</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">GARANTÍA DIRECTA DE MOSTRADOR</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">CALIDAD DE AUTOR</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">PAGO PROTEGIDO</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">RETIRO INMEDIATO O ENVÍO EXPRÉS</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">LOCALES FÍSICOS VERIFICADOS</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">GARANTÍA DIRECTA DE MOSTRADOR</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">CALIDAD DE AUTOR</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">PAGO PROTEGIDO</span>
-                    <span class="marquee-diamond"></span>
-                    <span class="marquee-item">RETIRO INMEDIATO O ENVÍO EXPRÉS</span>
-                    <span class="marquee-diamond"></span>
+                    <!-- Ciclo de anuncios 1 -->
+                    <div class="ticker-item">
+                        <span class="ticker-season">OTOÑO · CAFÉ</span>
+                        <strong class="ticker-name">Café Pluma de Altura</strong>
+                        <span class="ticker-trend trend-up">▲ +8.5%</span>
+                        <span class="ticker-price">$380 MXN</span>
+                        <span class="ticker-reason">Demanda invernal</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">COSECHA · MIEL</span>
+                        <strong class="ticker-name">Miel Melipona de Sierra</strong>
+                        <span class="ticker-trend trend-down">▼ -$65 MXN (-14%)</span>
+                        <span class="ticker-price">$420 MXN</span>
+                        <span class="ticker-reason">Floración anual</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">COTIZACIÓN · JOYERÍA</span>
+                        <strong class="ticker-name">Plata Ley .925 Taxco</strong>
+                        <span class="ticker-trend trend-up">▲ +12.0%</span>
+                        <span class="ticker-price">$1,450 MXN</span>
+                        <span class="ticker-reason">Alza de metal fino</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">CAMBIO ESTACIONAL · MODA</span>
+                        <strong class="ticker-name">Guayabera de Lino Yucateco</strong>
+                        <span class="ticker-trend trend-down">▼ -$120 MXN (-13%)</span>
+                        <span class="ticker-price">$780 MXN</span>
+                        <span class="ticker-reason">Liquidación de colección</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">TEMPORADA FRÍA · CALZADO</span>
+                        <strong class="ticker-name">Bota en Cuero Vacuno</strong>
+                        <span class="ticker-trend trend-stable">● Estable</span>
+                        <span class="ticker-price">$1,850 MXN</span>
+                        <span class="ticker-reason">Garantía fijada</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">DESTILACIÓN DE OTOÑO · MEZCAL</span>
+                        <strong class="ticker-name">Mezcal Espadín 750ml</strong>
+                        <span class="ticker-trend trend-up">▲ +6.0%</span>
+                        <span class="ticker-price">$620 MXN</span>
+                        <span class="ticker-reason">Lote nuevo de alambique</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">INVIERNO · HOGAR</span>
+                        <strong class="ticker-name">Cobija de Lana Artesanal</strong>
+                        <span class="ticker-trend trend-down">▼ -$150 MXN (-15%)</span>
+                        <span class="ticker-price">$890 MXN</span>
+                        <span class="ticker-reason">Promoción de apertura</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">ARTE · CERÁMICA</span>
+                        <strong class="ticker-name">Talavera Poblana</strong>
+                        <span class="ticker-trend trend-stable">● Estable</span>
+                        <span class="ticker-price">$980 MXN</span>
+                        <span class="ticker-reason">Precio directo de taller</span>
+                    </div>
+
+                    <!-- Ciclo de anuncios 2 (Duplicado idéntico para bucle infinito continuo) -->
+                    <div class="ticker-item">
+                        <span class="ticker-season">OTOÑO · CAFÉ</span>
+                        <strong class="ticker-name">Café Pluma de Altura</strong>
+                        <span class="ticker-trend trend-up">▲ +8.5%</span>
+                        <span class="ticker-price">$380 MXN</span>
+                        <span class="ticker-reason">Demanda invernal</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">COSECHA · MIEL</span>
+                        <strong class="ticker-name">Miel Melipona de Sierra</strong>
+                        <span class="ticker-trend trend-down">▼ -$65 MXN (-14%)</span>
+                        <span class="ticker-price">$420 MXN</span>
+                        <span class="ticker-reason">Floración anual</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">COTIZACIÓN · JOYERÍA</span>
+                        <strong class="ticker-name">Plata Ley .925 Taxco</strong>
+                        <span class="ticker-trend trend-up">▲ +12.0%</span>
+                        <span class="ticker-price">$1,450 MXN</span>
+                        <span class="ticker-reason">Alza de metal fino</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">CAMBIO ESTACIONAL · MODA</span>
+                        <strong class="ticker-name">Guayabera de Lino Yucateco</strong>
+                        <span class="ticker-trend trend-down">▼ -$120 MXN (-13%)</span>
+                        <span class="ticker-price">$780 MXN</span>
+                        <span class="ticker-reason">Liquidación de colección</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">TEMPORADA FRÍA · CALZADO</span>
+                        <strong class="ticker-name">Bota en Cuero Vacuno</strong>
+                        <span class="ticker-trend trend-stable">● Estable</span>
+                        <span class="ticker-price">$1,850 MXN</span>
+                        <span class="ticker-reason">Garantía fijada</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">DESTILACIÓN DE OTOÑO · MEZCAL</span>
+                        <strong class="ticker-name">Mezcal Espadín 750ml</strong>
+                        <span class="ticker-trend trend-up">▲ +6.0%</span>
+                        <span class="ticker-price">$620 MXN</span>
+                        <span class="ticker-reason">Lote nuevo de alambique</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">INVIERNO · HOGAR</span>
+                        <strong class="ticker-name">Cobija de Lana Artesanal</strong>
+                        <span class="ticker-trend trend-down">▼ -$150 MXN (-15%)</span>
+                        <span class="ticker-price">$890 MXN</span>
+                        <span class="ticker-reason">Promoción de apertura</span>
+                    </div>
+
+                    <div class="ticker-item">
+                        <span class="ticker-season">ARTE · CERÁMICA</span>
+                        <strong class="ticker-name">Talavera Poblana</strong>
+                        <span class="ticker-trend trend-stable">● Estable</span>
+                        <span class="ticker-price">$980 MXN</span>
+                        <span class="ticker-reason">Precio directo de taller</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -200,13 +314,14 @@
             </div>
 
             <!-- Filter Controls Bar -->
-            <div class="section-head" style="margin-top: 20px;">
-                <div>
+            <div class="section-head" style="margin-top: 24px;">
+                <div class="section-title-block">
+                    <span class="section-eyebrow">CATÁLOGO EXCLUSIVO</span>
                     <h2 class="section-title">
                         <span id="catalog-icon"></span>
-                        <span>Catálogo General</span>
+                        <span>Catálogo General del Mercado</span>
                     </h2>
-                    <div class="section-subtitle">Artículos disponibles con retiro en mostrador o entrega a domicilio</div>
+                    <div class="section-subtitle">Artículos oficiales con precios fijados por cada locatario y entrega directa</div>
                 </div>
 
                 <div class="filter-controls">
@@ -237,12 +352,13 @@
     <section class="main-wrapper" id="view-locatarios" style="display: none;">
         <div class="container">
             <div class="section-head">
-                <div>
+                <div class="section-title-block">
+                    <span class="section-eyebrow">DIRECTORIO FÍSICO</span>
                     <h2 class="section-title">
                         <span id="stores-icon-title"></span>
                         <span>Directorio Oficial de Locatarios</span>
                     </h2>
-                    <div class="section-subtitle">Establecimientos físicos afiliados con atención y venta directa</div>
+                    <div class="section-subtitle">Establecimientos físicos afiliados con atención y venta directa en mostrador</div>
                 </div>
                 <span class="badge badge-gold">6 Locatarios Registrados</span>
             </div>
@@ -269,12 +385,13 @@
     <section class="main-wrapper" id="view-pedidos" style="display: none;">
         <div class="container" style="max-width: 860px;">
             <div class="section-head">
-                <div>
+                <div class="section-title-block">
+                    <span class="section-eyebrow">HISTORIAL Y RASTREO</span>
                     <h2 class="section-title">
                         <span id="orders-icon-title"></span>
                         <span>Mis Compras & Seguimiento</span>
                     </h2>
-                    <div class="section-subtitle">Historial de órdenes, estado de preparación en local y tickets</div>
+                    <div class="section-subtitle">Historial de órdenes, estado de preparación en local y comprobantes emitidos</div>
                 </div>
             </div>
 
@@ -290,12 +407,13 @@
     <section class="main-wrapper" id="view-favoritos" style="display: none;">
         <div class="container">
             <div class="section-head">
-                <div>
+                <div class="section-title-block">
+                    <span class="section-eyebrow">LISTA PRIVADA</span>
                     <h2 class="section-title">
                         <span id="fav-icon-title"></span>
-                        <span>Mis Productos Guardados</span>
+                        <span>Mis Artículos Guardados</span>
                     </h2>
-                    <div class="section-subtitle">Artículos locales marcados como favoritos</div>
+                    <div class="section-subtitle">Productos locales seleccionados para consulta rápida y compra posterior</div>
                 </div>
             </div>
 
