@@ -301,107 +301,172 @@ svg { display: block; flex-shrink: 0; }
    ========================================================================== */
 .home-head {
     position: relative;
-    padding: calc(18px + env(safe-area-inset-top)) 20px 14px;
+    padding: calc(14px + env(safe-area-inset-top)) 16px 10px;
     background: linear-gradient(180deg, #FBF4EA 0%, #FFFFFF 100%);
-    border-bottom: 1px solid rgba(185, 131, 40, 0.14);
-    text-align: center;
 }
-.home-head-inner {
+
+.home-head-top {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    max-width: 340px;
-    margin: 0 auto;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
 }
-.home-angel-badge {
-    position: relative;
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
+
+.location-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     background: #FFFFFF;
-    border: 2px solid var(--oro);
-    box-shadow: 0 4px 16px rgba(123, 30, 58, 0.12);
-    overflow: hidden;
-    display: grid;
-    place-items: center;
+    border: 1px solid var(--linea);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    color: var(--texto-2);
+    box-shadow: 0 2px 6px rgba(123, 30, 58, 0.05);
+}
+
+.location-chip .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--verde);
+    box-shadow: 0 0 0 3px var(--verde-suave);
     flex-shrink: 0;
 }
-.home-angel {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    transform: scale(1.18);
+
+.location-chip strong {
+    color: var(--vino);
+    font-weight: 800;
 }
-.home-pill {
-    display: inline-block;
+
+.direct-badge {
     font-size: 0.65rem;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--vino);
     background: var(--rosa);
     border: 1px solid var(--rosa-borde);
-    padding: 3px 12px;
+    padding: 4px 10px;
     border-radius: 999px;
-    margin-bottom: 4px;
+    white-space: nowrap;
 }
-.home-brand {
+
+.home-hero-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FDF7EE 100%);
+    border: 1px solid rgba(185, 131, 40, 0.22);
+    border-radius: var(--r-xl);
+    padding: 18px 18px 18px 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    min-height: 142px;
+    box-shadow: 0 8px 24px rgba(123, 30, 58, 0.07);
 }
+
+.home-hero-body {
+    position: relative;
+    z-index: 2;
+    max-width: 68%;
+}
+
 .brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
     line-height: 0.95;
-    margin: 0 auto;
 }
+
 .brand-1 {
     font-size: 2.15rem;
     font-weight: 900;
     color: var(--vino);
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
 }
+
 .brand-2 {
     font-size: 2.15rem;
     font-weight: 900;
     color: var(--oro);
-    letter-spacing: 0.5px;
-    margin-top: 2px;
+    letter-spacing: -0.5px;
+    margin-top: 1px;
 }
+
 .slogan {
-    margin-top: 6px;
-    font-size: 0.96rem;
+    margin-top: 10px;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--texto);
     line-height: 1.3;
-    text-align: center;
 }
+
+.slogan span {
+    display: block;
+}
+
 .slogan em {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 1.18rem;
+    font-size: 1.16rem;
     color: var(--vino);
+    display: block;
+    margin-top: 2px;
+}
+
+.home-hero-art {
+    position: absolute;
+    right: -12px;
+    top: 0;
+    bottom: 0;
+    width: 138px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.home-angel-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    mix-blend-mode: multiply;
+    opacity: 0.88;
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
 }
 
 .benefits {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     padding: 6px 16px 10px;
     text-align: center;
-    font-size: 0.74rem;
-    font-weight: 600;
-    color: var(--texto);
 }
-.benefits li { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.benefit-ico { color: var(--vino); }
-.benefit-ico svg { width: 28px; height: 28px; }
+
+.benefits li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 6px;
+    background: #FFFFFF;
+    border: 1px solid var(--linea);
+    border-radius: var(--r-md);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--texto);
+    box-shadow: 0 2px 6px rgba(123, 30, 58, 0.04);
+}
+
+.benefit-ico {
+    color: var(--vino);
+}
+
+.benefit-ico svg {
+    width: 24px;
+    height: 24px;
+}
 
 /* --------- Carrusel de precios de temporada --------- */
 .ticker {
