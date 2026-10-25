@@ -301,32 +301,92 @@ svg { display: block; flex-shrink: 0; }
    ========================================================================== */
 .home-head {
     position: relative;
+    padding: calc(18px + env(safe-area-inset-top)) 20px 14px;
+    background: linear-gradient(180deg, #FBF4EA 0%, #FFFFFF 100%);
+    border-bottom: 1px solid rgba(185, 131, 40, 0.14);
+    text-align: center;
+}
+.home-head-inner {
     display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    padding: calc(14px + env(safe-area-inset-top)) 16px 4px 0;
-    background: linear-gradient(180deg, #FDF4F1 0%, #fff 100%);
-    min-height: 150px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 340px;
+    margin: 0 auto;
+}
+.home-angel-badge {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 2px solid var(--oro);
+    box-shadow: 0 4px 16px rgba(123, 30, 58, 0.12);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
 }
 .home-angel {
-    width: 96px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center top;
-    mix-blend-mode: multiply;
-    flex-shrink: 0;
-    margin-left: -8px;
+    object-position: center 25%;
+    transform: scale(1.18);
 }
-.home-brand { padding-top: 14px; }
-.brand { display: flex; flex-direction: column; line-height: 0.98; }
-.brand-1 { font-size: 2.15rem; font-weight: 900; color: var(--vino); letter-spacing: -0.5px; }
-.brand-2 { font-size: 2.15rem; font-weight: 900; color: var(--oro); letter-spacing: -0.5px; }
-.slogan { margin-top: 8px; font-size: 1.02rem; font-weight: 600; color: var(--texto); line-height: 1.25; }
+.home-pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--vino);
+    background: var(--rosa);
+    border: 1px solid var(--rosa-borde);
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+}
+.home-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.95;
+    margin: 0 auto;
+}
+.brand-1 {
+    font-size: 2.15rem;
+    font-weight: 900;
+    color: var(--vino);
+    letter-spacing: 0.5px;
+}
+.brand-2 {
+    font-size: 2.15rem;
+    font-weight: 900;
+    color: var(--oro);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+.slogan {
+    margin-top: 6px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--texto);
+    line-height: 1.3;
+    text-align: center;
+}
 .slogan em {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     color: var(--vino);
 }
 
