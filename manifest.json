@@ -5,9 +5,10 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "fullscreen"],
   "orientation": "portrait",
   "background_color": "#FBF4EA",
-  "theme_color": "#7B1E3A",
+  "theme_color": "#FBF4EA",
   "lang": "es-MX",
   "categories": ["business", "shopping", "food"],
   "icons": [
