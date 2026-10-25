@@ -34,7 +34,9 @@
         apple: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 4-4z"/><path d="M12 2v4"/><path d="M6 13c0 4 3 7 6 7s6-3 6-7a6 6 0 0 0-12 0z"/></svg>',
         drumstick: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6"/><path d="M18.8 6.2a4 4 0 0 0-5.6 0L4 15.4a2 2 0 0 0 0 2.8l1.8 1.8a2 2 0 0 0 2.8 0l9.2-9.2a4 4 0 0 0 0-5.6z"/><circle cx="5" cy="19" r="2"/></svg>',
         fish: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16s4-8 12-8c4 0 8 3 8 3s-4 8-12 8c-3 0-5-1-8-3z"/><path d="M18 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M2 12l-1 4h5l-4-4z"/></svg>',
-        cheese: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18l-9-9-9 9z"/><rect x="3" y="13" width="18" height="7" rx="1"/><circle cx="8" cy="16" r="1"/><circle cx="15" cy="17" r="1"/></svg>'
+        cheese: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18l-9-9-9 9z"/><rect x="3" y="13" width="18" height="7" rx="1"/><circle cx="8" cy="16" r="1"/><circle cx="15" cy="17" r="1"/></svg>',
+        whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.12c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.12 8.12 0 0 1-1.25-4.36c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.85 5.8 2.4 1.55 1.55 2.4 3.61 2.4 5.8 0 4.52-3.68 8.22-8.16 8.22zm4.49-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.17 1.75 2.67 4.24 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>',
+        star: '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
     };
 
     function renderIcons() {
@@ -160,18 +162,33 @@
     ];
 
     // -------------------------------------------------------------
+    // DATA: TIANGUIS EN CDMX (Impacto territorial)
+    // -------------------------------------------------------------
+    const TIANGUIS_LIST = [
+        { id: 'san-felipe', name: 'Tianguis San Felipe de Jesús', alcaldia: 'Gustavo A. Madero', dias: 'Domingos', flete: 120, eta: '5:00 a. m.', puestos: 450 },
+        { id: 'el-salado', name: 'Tianguis El Salado', alcaldia: 'Iztapalapa', dias: 'Miércoles', flete: 90, eta: '4:30 a. m.', puestos: 380 },
+        { id: 'tepito', name: 'Tianguis Tepito / Lagunilla', alcaldia: 'Cuauhtémoc', dias: 'Miércoles a Lunes', flete: 110, eta: '5:15 a. m.', puestos: 600 },
+        { id: 'doctores', name: 'Tianguis de los Martes', alcaldia: 'Cuauhtémoc', dias: 'Martes', flete: 120, eta: '5:00 a. m.', puestos: 210 },
+        { id: 'xochimilco', name: 'Tianguis Xochimilco Centro', alcaldia: 'Xochimilco', dias: 'Jueves y Sábados', flete: 140, eta: '5:30 a. m.', puestos: 290 },
+        { id: 'san-cosme', name: 'Tianguis San Cosme', alcaldia: 'Miguel Hidalgo', dias: 'Viernes', flete: 115, eta: '5:10 a. m.', puestos: 180 }
+    ];
+
+    // -------------------------------------------------------------
     // APP STATE & STORAGE
     // -------------------------------------------------------------
     const STORAGE_KEY = 'tianguis_conectado_v1';
 
     function loadState() {
+        let loaded = null;
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
-            if (raw) return JSON.parse(raw);
+            if (raw) loaded = JSON.parse(raw);
         } catch (e) { /* ignore */ }
-        return {
+
+        const def = {
             order: JSON.parse(JSON.stringify(INITIAL_ORDER)),
             shippingFee: 120,
+            activeTianguis: 'san-felipe',
             selectedSuppliers: { jitomate: 'ceda-1', papa: 'papa-1', cebolla: 'ceb-1', limon: 'lim-1' },
             activeCategory: 'frutas',
             activeProductChip: 'jitomate',
@@ -181,6 +198,10 @@
                 { id: 'TC-2388', date: '18 oct, 7:40 p. m.', total: 1420, status: 'Entregado', itemsCount: 3 }
             ]
         };
+
+        if (!loaded) return def;
+        if (!loaded.activeTianguis) loaded.activeTianguis = 'san-felipe';
+        return loaded;
     }
 
     function saveState() {
@@ -800,6 +821,136 @@
     }
 
     // -------------------------------------------------------------
+    // TIANGUIS SELECTOR & CDMX LOCATION LOGIC
+    // -------------------------------------------------------------
+    function getActiveTianguis() {
+        return TIANGUIS_LIST.find(t => t.id === state.activeTianguis) || TIANGUIS_LIST[0];
+    }
+
+    function updateTianguisUI() {
+        const active = getActiveTianguis();
+        const lbl = document.getElementById('active-tianguis-label');
+        if (lbl) {
+            const shortAlcaldia = active.alcaldia.includes('Gustavo') ? 'GAM' : active.alcaldia;
+            lbl.textContent = `${active.name} • ${shortAlcaldia}`;
+        }
+        const etaPlace = document.getElementById('eta-place');
+        if (etaPlace) etaPlace.textContent = `en ${active.name}`;
+        const etaTime = document.getElementById('eta-time');
+        if (etaTime) etaTime.textContent = `Mañana, ${active.eta}`;
+
+        // Update shipping fee
+        if (active.flete) state.shippingFee = active.flete;
+    }
+
+    function openTianguisSelector() {
+        const active = getActiveTianguis();
+        const listHtml = TIANGUIS_LIST.map(t => {
+            const isSel = t.id === active.id;
+            return `
+                <li style="margin-bottom:8px">
+                    <button class="guide-card ${isSel ? 'tone-rosa' : 'tone-crema'}" data-pick-tianguis="${t.id}" style="border:1.5px solid ${isSel ? 'var(--vino)' : 'var(--linea)'};width:100%">
+                        <span class="guide-num ${isSel ? '' : 'oro'}" style="font-size:0.8rem">${ICONS.pin}</span>
+                        <div class="guide-txt" style="flex:1">
+                            <strong style="font-size:0.95rem;color:${isSel ? 'var(--vino)' : 'var(--texto)'}">${t.name}</strong>
+                            <span>Alcaldía ${t.alcaldia} · Flete compartido: <strong>$${t.flete}</strong> · ${t.puestos} puestos</span>
+                        </div>
+                        ${isSel ? `<span style="color:var(--verde);font-weight:800;font-size:1.1rem">✓</span>` : ''}
+                    </button>
+                </li>
+            `;
+        }).join('');
+
+        openSheet('Selecciona tu Tianguis en CDMX', `
+            <p class="note" style="margin-bottom:12px">Elige en qué tianguis recibes tu mercancía consolidada desde la Central de Abasto:</p>
+            <ul style="max-height:360px;overflow-y:auto;padding-right:4px">
+                ${listHtml}
+            </ul>
+        `);
+    }
+
+    function selectTianguis(tianguisId) {
+        state.activeTianguis = tianguisId;
+        const active = getActiveTianguis();
+        state.shippingFee = active.flete;
+        saveState();
+        updateTianguisUI();
+        closeSheet();
+        showToast(`Tianguis asignado: ${active.name}`);
+        if (currentScreen === 'seguimiento') renderTimeline();
+        if (currentScreen === 'pedido') renderOrderReview();
+    }
+
+    // -------------------------------------------------------------
+    // WHATSAPP / SMS RECEIPT SIMULATION
+    // -------------------------------------------------------------
+    function showWhatsAppSimulation() {
+        const active = getActiveTianguis();
+        const itemsList = state.order.map(i => `• ${i.name} (${i.desc}) - $${i.price.toLocaleString('es-MX')}`).join('\n');
+        const subtotal = state.order.reduce((acc, i) => acc + i.price, 0);
+        const total = subtotal + state.shippingFee;
+        const folio = 'MD-' + Math.floor(1000 + Math.random() * 9000);
+        const clave = 'CLAVE-' + Math.floor(10 + Math.random() * 90);
+
+        const waText = 
+`🧺 *MARCHANTE DIGITAL CDMX*
+📋 *Comprobante de Pedido #${folio}*
+📍 *Tianguis:* ${active.name} (${active.alcaldia})
+⏰ *Hora de entrega:* Mañana, ${active.eta}
+🚚 *Ruta:* CEDA Iztapalapa ➔ Camión 04
+
+📦 *Productos pedidos:*
+${itemsList}
+
+🚚 *Flete compartido:* $${state.shippingFee} MXN
+💵 *TOTAL A PAGAR:* $${total.toLocaleString('es-MX')} MXN
+(Se paga en efectivo directo al chofer del camión)
+
+🔑 *Tu clave de entrega:* *${clave}*
+_Conserva este mensaje. No requiere conexión continua._`;
+
+        openSheet('Comprobante WhatsApp / SMS', `
+            <div style="text-align:left">
+                <div class="wa-card-top" style="margin-bottom:8px">
+                    <span class="wa-badge-ico">${ICONS.whatsapp}</span>
+                    <div>
+                        <strong>Mensaje enviado al 55 4910 2311</strong>
+                        <small>Simulación oficial para demostración al jurado</small>
+                    </div>
+                </div>
+                <div class="wa-bubble">${waText}<span class="wa-bubble-time">✓✓ Entregado • Ahora</span></div>
+                <div class="stack" style="margin-top:14px">
+                    <button class="btn btn-primary" data-copy-wa><span data-icon="check"></span>Copiar texto de confirmación</button>
+                    <button class="btn btn-outline" id="btn-send-sms"><span data-icon="phone"></span>Simular envío por SMS de respaldo</button>
+                </div>
+            </div>
+        `);
+        renderIcons();
+
+        setTimeout(() => {
+            const copyBtn = document.querySelector('[data-copy-wa]');
+            if (copyBtn) {
+                copyBtn.onclick = () => {
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(waText).then(() => {
+                            showToast('¡Texto copiado al portapapeles!');
+                        }).catch(() => showToast('Copia lista para compartir'));
+                    } else {
+                        showToast('Copia lista para compartir');
+                    }
+                };
+            }
+            const smsBtn = document.getElementById('btn-send-sms');
+            if (smsBtn) {
+                smsBtn.onclick = () => {
+                    closeSheet();
+                    showToast('SMS enviado con éxito al comerciante (Simulación)');
+                };
+            }
+        }, 50);
+    }
+
+    // -------------------------------------------------------------
     // EVENT DELEGATION
     // -------------------------------------------------------------
     function bindEvents() {
@@ -990,12 +1141,35 @@
                 return;
             }
 
+            // Tianguis selector open
+            if (e.target.closest('#btn-select-tianguis')) {
+                e.preventDefault();
+                openTianguisSelector();
+                return;
+            }
+
+            // Tianguis pick
+            const pickTianguisBtn = e.target.closest('[data-pick-tianguis]');
+            if (pickTianguisBtn) {
+                e.preventDefault();
+                selectTianguis(pickTianguisBtn.getAttribute('data-pick-tianguis'));
+                return;
+            }
+
+            // WhatsApp simulation triggers
+            if (e.target.closest('#btn-open-wa') || e.target.closest('#btn-share-wa')) {
+                e.preventDefault();
+                showWhatsAppSimulation();
+                return;
+            }
+
             // Reset demo
             if (e.target.closest('#btn-reset')) {
                 e.preventDefault();
                 try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
                 state = loadState();
                 updateBadge();
+                updateTianguisUI();
                 showToast('Datos de demostración restablecidos');
                 goTo('inicio');
                 return;
@@ -1032,6 +1206,7 @@
         initSpeech();
         bindEvents();
         updateBadge();
+        updateTianguisUI();
         goTo('inicio', false);
     });
 

@@ -51,6 +51,16 @@
                         <img class="home-angel-art" src="assets/angel_cdmx.jpg" alt="">
                     </div>
                 </div>
+
+                <!-- 1. Selector interactivo de Tianguis / Alcaldía -->
+                <div class="tianguis-bar" id="btn-select-tianguis" role="button" tabindex="0" aria-label="Cambiar tianguis de entrega">
+                    <span class="tianguis-pin" data-icon="pin"></span>
+                    <div class="tianguis-info">
+                        <small>Tianguis de entrega en CDMX:</small>
+                        <strong id="active-tianguis-label">Tianguis San Felipe de Jesús • GAM</strong>
+                    </div>
+                    <span class="tianguis-action">Cambiar</span>
+                </div>
             </header>
 
             <ul class="benefits">
@@ -58,6 +68,28 @@
                 <li><span class="benefit-ico" data-icon="leaf"></span>Más frescura</li>
                 <li><span class="benefit-ico" data-icon="coins"></span>Mejores precios</li>
             </ul>
+
+            <!-- 2. Métricas de Impacto CDMX -->
+            <div class="impact-card" role="region" aria-label="Impacto social y económico en CDMX">
+                <div class="impact-head">
+                    <span class="impact-tag"><span class="impact-star" data-icon="star"></span>Impacto CDMX</span>
+                    <span class="impact-period">Ahorro semanal promedio</span>
+                </div>
+                <div class="impact-grid">
+                    <div class="impact-col">
+                        <strong class="impact-val text-green">$1,480</strong>
+                        <span class="impact-lbl">Ahorro en fletes</span>
+                    </div>
+                    <div class="impact-col">
+                        <strong class="impact-val text-wine">14 hrs</strong>
+                        <span class="impact-lbl">Sueño ganado</span>
+                    </div>
+                    <div class="impact-col">
+                        <strong class="impact-val text-gold">4 viajes</strong>
+                        <span class="impact-lbl">CEDA evitados</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- Carrusel de precios de temporada (bucle continuo) -->
             <div class="ticker" role="region" aria-label="Precios de temporada en la Central de Abasto">
@@ -155,6 +187,18 @@
                     </div>
                     <div class="total-box"><span>Total</span><strong id="sum-total">$0</strong></div>
 
+                    <!-- 3. Modo WhatsApp / Notificación SMS -->
+                    <div class="wa-card" id="wa-card">
+                        <div class="wa-card-top">
+                            <span class="wa-badge-ico" data-icon="whatsapp"></span>
+                            <div>
+                                <strong>Confirmación por WhatsApp / SMS</strong>
+                                <small>Recibe tu ticket digital y clave de entrega sin consumir datos</small>
+                            </div>
+                        </div>
+                        <button class="wa-btn" id="btn-open-wa" type="button"><span data-icon="whatsapp"></span>Ver comprobante en WhatsApp</button>
+                    </div>
+
                     <div class="stack">
                         <button class="btn btn-primary" id="btn-correcto"><span data-icon="check"></span>Sí, está correcto</button>
                         <button class="btn btn-outline" id="btn-cambiar"><span data-icon="edit"></span><span id="btn-cambiar-txt">Quiero cambiar algo</span></button>
@@ -203,12 +247,15 @@
 
                 <div class="eta">
                     <span class="eta-ico" data-icon="truck"></span>
-                    <div><span class="eta-label">Llegada estimada:</span><strong id="eta-time">Mañana, 5:00 a. m.</strong><small>en tu tianguis</small></div>
+                    <div><span class="eta-label">Llegada estimada:</span><strong id="eta-time">Mañana, 5:00 a. m.</strong><small id="eta-place">en tu tianguis</small></div>
                 </div>
 
                 <div class="map" id="map" aria-label="Mapa de la ruta del pedido"></div>
 
-                <button class="btn btn-outline" id="btn-detalles">Ver detalles del pedido</button>
+                <div class="stack">
+                    <button class="btn btn-outline" id="btn-share-wa" type="button"><span data-icon="whatsapp"></span>Comprobante por WhatsApp</button>
+                    <button class="btn btn-outline" id="btn-detalles" type="button">Ver detalles del pedido</button>
+                </div>
             </div>
         </section>
 

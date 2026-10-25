@@ -420,6 +420,204 @@ svg { display: block; flex-shrink: 0; }
     height: 24px;
 }
 
+/* Selector de Tianguis en CDMX */
+.tianguis-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 9px 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--linea);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(123, 30, 58, 0.05);
+    transition: transform var(--t), border-color var(--t);
+}
+.tianguis-bar:hover {
+    border-color: var(--oro);
+    transform: translateY(-1px);
+}
+.tianguis-pin {
+    color: var(--vino);
+    flex-shrink: 0;
+}
+.tianguis-pin svg { width: 18px; height: 18px; }
+.tianguis-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.25;
+}
+.tianguis-info small {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--texto-3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.tianguis-info strong {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--texto);
+}
+.tianguis-action {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--vino);
+    background: var(--rosa);
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+/* Tarjeta de Impacto CDMX */
+.impact-card {
+    margin: 4px 16px 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #FAF4ED 0%, #FFFFFF 100%);
+    border: 1px solid rgba(185, 131, 40, 0.25);
+    border-radius: var(--r-md);
+    box-shadow: 0 4px 12px rgba(123, 30, 58, 0.04);
+}
+.impact-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.impact-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--oro);
+}
+.impact-star svg { width: 14px; height: 14px; color: var(--oro); }
+.impact-period {
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--texto-3);
+}
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+.impact-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 6px 4px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--linea);
+}
+.impact-val {
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.1;
+}
+.impact-val.text-green { color: var(--verde); }
+.impact-val.text-wine { color: var(--vino); }
+.impact-val.text-gold { color: var(--oro); }
+.impact-lbl {
+    font-size: 0.63rem;
+    font-weight: 700;
+    color: var(--texto-2);
+    margin-top: 2px;
+}
+
+/* Tarjeta y Modal de WhatsApp */
+.wa-card {
+    background: #F3F9F5;
+    border: 1.5px solid #C4E3D1;
+    border-radius: var(--r-md);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+    text-align: left;
+}
+.wa-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.wa-badge-ico {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.wa-badge-ico svg { width: 20px; height: 20px; }
+.wa-card-top strong {
+    display: block;
+    font-size: 0.88rem;
+    color: #125E35;
+    line-height: 1.2;
+}
+.wa-card-top small {
+    display: block;
+    font-size: 0.72rem;
+    color: #407559;
+    line-height: 1.25;
+    margin-top: 2px;
+}
+.wa-btn {
+    width: 100%;
+    min-height: 42px;
+    background: #25D366;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.88rem;
+    border-radius: var(--r-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background var(--t), transform var(--t);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
+    cursor: pointer;
+}
+.wa-btn:hover { background: #20BA5A; }
+.wa-btn:active { transform: scale(0.98); }
+.wa-btn svg { width: 18px; height: 18px; }
+
+/* Vista simulada de mensaje de WhatsApp */
+.wa-bubble {
+    background: #E7FCE3;
+    border: 1px solid #D1F3CA;
+    border-radius: 12px 12px 2px 12px;
+    padding: 14px;
+    color: #111B21;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin: 8px 0;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.wa-bubble-time {
+    display: block;
+    text-align: right;
+    font-size: 0.65rem;
+    color: #667781;
+    margin-top: 4px;
+}
+
 /* --------- Carrusel de precios de temporada --------- */
 .ticker {
     margin: 0 12px;
