@@ -1,4 +1,4 @@
-// TIANGUIS CONECTADO - Interactive Application Engine
+// MARCHANTE DIGITAL - Interactive Application Engine
 // Vanilla JavaScript, 100% Vector SVG, Zero Emojis
 
 (function () {
