@@ -1163,6 +1163,21 @@ _Conserva este mensaje. No requiere conexión continua._`;
                 return;
             }
 
+            // PWA install trigger
+            if (e.target.closest('#btn-install-pwa') || e.target.closest('#btn-profile-install')) {
+                e.preventDefault();
+                triggerPWAInstall();
+                return;
+            }
+
+            // Dismiss install banner
+            if (e.target.closest('#btn-dismiss-install')) {
+                e.preventDefault();
+                const banner = document.getElementById('pwa-install-banner');
+                if (banner) banner.hidden = true;
+                return;
+            }
+
             // Reset demo
             if (e.target.closest('#btn-reset')) {
                 e.preventDefault();
@@ -1198,12 +1213,72 @@ _Conserva este mensaje. No requiere conexión continua._`;
     }
 
     // -------------------------------------------------------------
+    // PWA INSTALLATION & SERVICE WORKER
+    // -------------------------------------------------------------
+    let deferredInstallPrompt = null;
+
+    function initPWA() {
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(() => {});
+            });
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredInstallPrompt = e;
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.hidden = false;
+        });
+
+        window.addEventListener('appinstalled', () => {
+            deferredInstallPrompt = null;
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.hidden = true;
+            showToast('¡Marchante Digital instalado como App!');
+        });
+    }
+
+    function triggerPWAInstall() {
+        if (deferredInstallPrompt) {
+            deferredInstallPrompt.prompt();
+            deferredInstallPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    showToast('Instalando aplicación...');
+                }
+                deferredInstallPrompt = null;
+                const banner = document.getElementById('pwa-install-banner');
+                if (banner) banner.hidden = true;
+            });
+        } else {
+            openSheet('Cómo instalar Marchante en tu teléfono', `
+                <div class="sheet-tips" style="text-align:left">
+                    <p style="margin-bottom:12px">Instala Marchante como aplicación en la pantalla de inicio de tu celular:</p>
+                    <div style="background:#FFFDFB;border:1px solid var(--linea);padding:12px;border-radius:12px;margin-bottom:10px">
+                        <strong style="color:var(--vino);display:block;margin-bottom:4px">📱 En iPhone / iPad (Safari):</strong>
+                        1. Toca el botón <strong>Compartir</strong> (icono cuadrado con flecha arriba en la barra de navegación).<br>
+                        2. Desliza y selecciona <strong>"Agregar a inicio"</strong>.<br>
+                        3. Toca <strong>"Agregar"</strong> arriba a la derecha.
+                    </div>
+                    <div style="background:#FFFDFB;border:1px solid var(--linea);padding:12px;border-radius:12px">
+                        <strong style="color:var(--vino);display:block;margin-bottom:4px">🤖 En Android (Chrome / Brave / Edge):</strong>
+                        1. Toca los <strong>tres puntos</strong> de opciones del navegador (arriba a la derecha).<br>
+                        2. Elige <strong>"Instalar aplicación"</strong> o <strong>"Agregar a la pantalla principal"</strong>.<br>
+                        3. Confirma en <strong>"Instalar"</strong>.
+                    </div>
+                </div>
+            `);
+        }
+    }
+
+    // -------------------------------------------------------------
     // INIT
     // -------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
         renderIcons();
         renderTicker();
         initSpeech();
+        initPWA();
         bindEvents();
         updateBadge();
         updateTianguisUI();

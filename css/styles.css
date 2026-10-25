@@ -305,6 +305,67 @@ svg { display: block; flex-shrink: 0; }
     background: linear-gradient(180deg, #FBF4EA 0%, #FFFFFF 100%);
 }
 
+/* Banner de instalación PWA */
+.pwa-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--oro);
+    border-radius: var(--r-md);
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(185, 131, 40, 0.15);
+}
+.pwa-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    text-align: left;
+}
+.pwa-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.pwa-txt strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--vino);
+    line-height: 1.2;
+}
+.pwa-txt small {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--texto-2);
+}
+.pwa-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.pwa-btn {
+    background: var(--vino);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.74rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: transform var(--t);
+    cursor: pointer;
+}
+.pwa-btn:active { transform: scale(0.96); }
+.pwa-close {
+    font-size: 1.2rem;
+    color: var(--texto-3);
+    padding: 2px 6px;
+    line-height: 1;
+    cursor: pointer;
+}
+
 .home-hero-card {
     position: relative;
     overflow: hidden;

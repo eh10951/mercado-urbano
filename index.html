@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#7B1E3A">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Marchante">
+    <meta name="application-name" content="Marchante Digital">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <title>Marchante Digital | Pide por voz a la Central de Abasto</title>
     <meta name="description" content="Marchante Digital: el comerciante pide por voz, compara precios de la Central de Abasto y otros proveedores, y sigue su pedido en tiempo real hasta su tianguis.">
 
@@ -36,6 +43,20 @@
         <!-- ========== 1. INICIO ========== -->
         <section class="screen is-active has-tabbar" id="screen-inicio" data-screen="inicio" aria-label="Inicio">
             <header class="home-head">
+                <!-- Banner de Instalación PWA para Móvil / Escritorio -->
+                <div class="pwa-banner" id="pwa-install-banner" hidden>
+                    <div class="pwa-left">
+                        <img src="assets/icon-192.png" alt="Marchante" class="pwa-icon">
+                        <div class="pwa-txt">
+                            <strong>Instalar app en tu celular</strong>
+                            <small>Acceso rápido en tu pantalla de inicio</small>
+                        </div>
+                    </div>
+                    <div class="pwa-actions">
+                        <button class="pwa-btn" id="btn-install-pwa">Instalar</button>
+                        <button class="pwa-close" id="btn-dismiss-install" aria-label="Cerrar">&times;</button>
+                    </div>
+                </div>
                 <div class="home-hero-card">
                     <div class="home-hero-body">
                         <h1 class="brand">
@@ -302,6 +323,7 @@
                     <li><span data-icon="phone"></span><div><small>Teléfono</small><strong>55 4910 2311</strong></div></li>
                     <li><span data-icon="coins"></span><div><small>Forma de pago</small><strong>Efectivo al recibir</strong></div></li>
                 </ul>
+                <button class="btn btn-primary" id="btn-profile-install"><span data-icon="home"></span>Instalar aplicación en tu celular</button>
                 <button class="btn btn-outline" id="btn-reset">Restablecer datos de demostración</button>
             </div>
         </section>
